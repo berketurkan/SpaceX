@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02250B4A2C6C82FB0094700E /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02250B492C6C82FB0094700E /* Color++.swift */; };
 		0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280919E2C6B32D3002DBF5F /* Rocket.swift */; };
 		028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028091A02C6B32E8002DBF5F /* RocketListCell.swift */; };
 		028091A62C6B37E2002DBF5F /* SpaceXTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */; };
@@ -14,9 +15,14 @@
 		028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028439A92C6A4AE600316DB3 /* SpaceX_iOSApp.swift */; };
 		028439AE2C6A4AE700316DB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028439AD2C6A4AE700316DB3 /* Assets.xcassets */; };
 		028439B12C6A4AE700316DB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */; };
+		02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE3562C6B99BB006AC26B /* RocketsListView.swift */; };
+		02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */; };
+		02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35C2C6BA453006AC26B /* FavoritesView.swift */; };
+		02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02250B492C6C82FB0094700E /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
 		0280919E2C6B32D3002DBF5F /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		028091A02C6B32E8002DBF5F /* RocketListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketListCell.swift; sourceTree = "<group>"; };
 		028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXTabView.swift; sourceTree = "<group>"; };
@@ -25,6 +31,10 @@
 		028439A92C6A4AE600316DB3 /* SpaceX_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceX_iOSApp.swift; sourceTree = "<group>"; };
 		028439AD2C6A4AE700316DB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02BCE3562C6B99BB006AC26B /* RocketsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsListView.swift; sourceTree = "<group>"; };
+		02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
+		02BCE35C2C6BA453006AC26B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 		0280919D2C6B32BF002DBF5F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				02250B492C6C82FB0094700E /* Color++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -82,6 +93,7 @@
 		028091A22C6B330B002DBF5F /* RocketsView */ = {
 			isa = PBXGroup;
 			children = (
+				02BCE3562C6B99BB006AC26B /* RocketsListView.swift */,
 			);
 			path = RocketsView;
 			sourceTree = "<group>";
@@ -89,6 +101,7 @@
 		028091A32C6B3315002DBF5F /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
+				02BCE35C2C6BA453006AC26B /* FavoritesView.swift */,
 			);
 			path = FavoritesView;
 			sourceTree = "<group>";
@@ -96,6 +109,7 @@
 		028091A42C6B3321002DBF5F /* Upcoming View */ = {
 			isa = PBXGroup;
 			children = (
+				02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */,
 			);
 			path = "Upcoming View";
 			sourceTree = "<group>";
@@ -128,6 +142,7 @@
 				028439AF2C6A4AE700316DB3 /* Preview Content */,
 				028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */,
 				028091A92C6B403F002DBF5F /* SplashView.swift */,
+				02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */,
 			);
 			path = "SpaceX iOS";
 			sourceTree = "<group>";
@@ -214,7 +229,12 @@
 				028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */,
 				028091AA2C6B403F002DBF5F /* SplashView.swift in Sources */,
 				0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */,
+				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
+				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,
+				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
+				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
 				028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */,
+				02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
