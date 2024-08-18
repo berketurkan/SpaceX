@@ -37,10 +37,10 @@ struct RocketResponse: Decodable {
 }
 
 struct MockData {
-    static let sampleRocket = Rocket(id: 001,
+    static let sampleRocket = Rocket(id: 000,
                                      name: "Test Rocket",
                                      description: "Amazing",
-                                     imageURL: "TestRocket",
+                                     imageURL: "TestFalcon",
                                      isFavorite: false,
                                      heightMeter: 111,
                                      heightFeet: 111,
@@ -50,5 +50,48 @@ struct MockData {
                                      massLb: 111,
                                      images: ["TestRocket","TestRocket"],
                                      payloadWeights: [])
-    static let sampleRockets = [sampleRocket,sampleRocket,sampleRocket,sampleRocket]
+    
+    static let sampleRocket1 = Rocket(id: 001,
+                                      name: "Test Rocket",
+                                      description: "Amazing",
+                                      imageURL: "TestFalcon",
+                                      isFavorite: false,
+                                      heightMeter: 111,
+                                      heightFeet: 111,
+                                      diameterMeter: 111,
+                                      diameterFeet: 111,
+                                      massKg: 111,
+                                      massLb: 111,
+                                      images: ["TestRocket","TestRocket"],
+                                      payloadWeights: [])
+    
+    static let sampleRocket2 = Rocket(id: 002,
+                                      name: "Test Rocket",
+                                      description: "Amazing",
+                                      imageURL: "TestFalcon",
+                                      isFavorite: false,
+                                      heightMeter: 111,
+                                      heightFeet: 111,
+                                      diameterMeter: 111,
+                                      diameterFeet: 111,
+                                      massKg: 111,
+                                      massLb: 111,
+                                      images: ["TestRocket","TestRocket"],
+                                      payloadWeights: [])
+    
+    static let sampleRocket3 = Rocket(id: 003,
+                                      name: "Test Rocket",
+                                      description: "Amazing",
+                                      imageURL: "TestFalcon",
+                                      isFavorite: false,
+                                      heightMeter: 111,
+                                      heightFeet: 111,
+                                      diameterMeter: 111,
+                                      diameterFeet: 111,
+                                      massKg: 111,
+                                      massLb: 111,
+                                      images: ["TestRocket","TestRocket"],
+                                      payloadWeights: [])
+    
+    static let sampleRockets = [sampleRocket, sampleRocket1, sampleRocket2, sampleRocket3]
 }

@@ -15,6 +15,8 @@
 		028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028439A92C6A4AE600316DB3 /* SpaceX_iOSApp.swift */; };
 		028439AE2C6A4AE700316DB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028439AD2C6A4AE700316DB3 /* Assets.xcassets */; };
 		028439B12C6A4AE700316DB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */; };
+		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
+		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE3562C6B99BB006AC26B /* RocketsListView.swift */; };
 		02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */; };
 		02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35C2C6BA453006AC26B /* FavoritesView.swift */; };
@@ -31,6 +33,9 @@
 		028439A92C6A4AE600316DB3 /* SpaceX_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceX_iOSApp.swift; sourceTree = "<group>"; };
 		028439AD2C6A4AE700316DB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
+		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
 		02BCE3562C6B99BB006AC26B /* RocketsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsListView.swift; sourceTree = "<group>"; };
 		02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
 		02BCE35C2C6BA453006AC26B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -133,6 +138,8 @@
 		028439A82C6A4AE600316DB3 /* SpaceX iOS */ = {
 			isa = PBXGroup;
 			children = (
+				02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */,
+				02AEAF422C6DDA8C00803662 /* Font */,
 				0280919C2C6B3266002DBF5F /* Screens */,
 				0280919B2C6B3260002DBF5F /* Views */,
 				0280919A2C6B325B002DBF5F /* Model */,
@@ -153,6 +160,15 @@
 				028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		02AEAF422C6DDA8C00803662 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				02AEAF432C6DDAA800803662 /* nasalization-rg.otf */,
+				02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +231,8 @@
 			files = (
 				028439B12C6A4AE700316DB3 /* Preview Assets.xcassets in Resources */,
 				028439AE2C6A4AE700316DB3 /* Assets.xcassets in Resources */,
+				02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */,
+				02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +384,7 @@
 				DEVELOPMENT_TEAM = HP2K7Z3DWK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SpaceX-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -395,6 +414,7 @@
 				DEVELOPMENT_TEAM = HP2K7Z3DWK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SpaceX-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
