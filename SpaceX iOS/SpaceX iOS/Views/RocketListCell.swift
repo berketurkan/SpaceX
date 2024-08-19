@@ -13,10 +13,14 @@ struct RocketListCell: View {
     
     var body: some View {
         VStack {
+            
+            Spacer(minLength: 10)
+            
             HStack {
                 Text(rocket.name)
                     .font(Font.custom("Nasalization", size: 17))
-                    .foregroundColor(isTapAnimating ? Color("lightGreen") : .white)                    .padding(.top, 0)
+                    .foregroundColor(isTapAnimating ? Color("lightGreen") : .white)
+                    .padding(.top, 0)
                     .padding(.trailing, 15)
                 
                 Spacer()
@@ -30,20 +34,23 @@ struct RocketListCell: View {
                         .scaledToFill()
                         .frame(width: 40, height: 40)
                 }
-                .padding(.trailing,0)
-                .padding(.top,0)
+                //.padding(.trailing,0)
+                //.padding(.top,0)
             }
-            .padding(.trailing,0)
-            .padding(.top,0)
+            //.padding(.trailing,0)
+            //.padding(.top,0)
             
-            Image(rocket.imageURL)
-                .resizable()
-                .aspectRatio( contentMode: .fill)
-                .frame(width: 250, height: 100)
+            Spacer(minLength: 0)
+            
+            RocketRemoteImage(urlString: rocket.imageURL)
+                .aspectRatio( contentMode: .fit)
+                .frame(width: 600, height: 140)
                 .padding(.top, 10)
+            
+            Spacer(minLength: 15)
         }
         .padding()
-        .frame(width: 359, height: 180)
+        .frame(width: 359, height: 200)
         .background(Color.white.opacity(0.1))
         .cornerRadius(15)
         .overlay(

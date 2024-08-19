@@ -40,9 +40,26 @@ final class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let decodedResponse = try decoder.decode(RocketResponse.self, from: data)
-                completed(.success(decodedResponse.request))
-            }   catch {
+                let decodedResponse = try decoder.decode([Rocket].self, from: data)
+                completed(.success(decodedResponse))
+            }   catch let DecodingError.dataCorrupted(context) {
+                print("Data corrupted: \(context.debugDescription)")
+                print("Context: \(context)")
+                completed(.failure(.invalidData))
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found: \(context.debugDescription)")
+                print("Coding Path: \(context.codingPath)")
+                completed(.failure(.invalidData))
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found: \(context.debugDescription)")
+                print("Coding Path: \(context.codingPath)")
+                completed(.failure(.invalidData))
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch: \(context.debugDescription)")
+                print("Coding Path: \(context.codingPath)")
+                completed(.failure(.invalidData))
+            } catch {
+                print("Unexpected error: \(error.localizedDescription)")
                 completed(.failure(.invalidData))
             }
         }

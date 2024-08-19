@@ -11,19 +11,19 @@ struct RocketDetailView: View {
     
     let rocket: Rocket
     @Environment(\.presentationMode) private var presentationMode
-
     
-    init(rocket: Rocket) {
-        self.rocket = rocket
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.titleTextAttributes = [
-            .foregroundColor: UIColor(named: "lightGreen") ?? UIColor.white,
-            .font: UIFont(name: "Nasalization", size: 20)!
-        ]
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
+    
+    //    init(rocket: Rocket) {
+    //        self.rocket = rocket
+    //        let appearance = UINavigationBarAppearance()
+    //        appearance.configureWithTransparentBackground()
+    //        appearance.titleTextAttributes = [
+    //            .foregroundColor: UIColor(named: "lightGreen") ?? UIColor.white,
+    //            .font: UIFont(name: "Nasalization", size: 20)!
+    //        ]
+    //        UINavigationBar.appearance().standardAppearance = appearance
+    //        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    //    }
     
     var body: some View {
         ZStack {
@@ -37,12 +37,13 @@ struct RocketDetailView: View {
             ScrollView {
                 VStack {
                     HStack(spacing: 15) {
-                        Image(rocket.imageURL)
-                            .resizable()
+                        //Image("TestFalcon")
+                        //.resizable()
+                        RocketRemoteImage(urlString: rocket.imageURL)
                             .aspectRatio( contentMode: .fill)
-                            .frame(width: 250, height: 150)
+                            .frame(width: 275, height: 175)
                             .padding(.top, 120)
-                            .padding(.trailing, 30)
+                            .padding(.trailing, 0)
                         
                         Button {
                             //rocket.isFavorite.toggle()
@@ -53,6 +54,7 @@ struct RocketDetailView: View {
                                 .foregroundColor(rocket.isFavorite ? Color("lightGreen") : .white)
                                 .scaledToFill()
                                 .frame(width: 40, height: 40)
+                                .padding(.top, -25)
                         }
                     }
                     
@@ -62,22 +64,31 @@ struct RocketDetailView: View {
                         .foregroundColor(.white)
                         .font(Font.custom("Muli", size: 16))
                     
-                    DetailRow(title: "HEIGHT", data: String(format: "%.1f m / %.1f ft", rocket.heightMeter, rocket.heightFeet))
-                        .padding(.horizontal, 32)
+                    DetailRow(
+                        title: "HEIGHT",
+                        data: String(format: "%.1f m / %.1f ft", rocket.height.meters, rocket.height.feet)
+                    )
+                    .padding(.horizontal, 32)
                     
-                    DetailRow(title: "DIAMETER", data: String(format: "%.1f m / %.1f ft", rocket.diameterMeter, rocket.diameterFeet))
-                        .padding(.horizontal, 32)
+                    DetailRow(
+                        title: "DIAMETER",
+                        data: String(format: "%.1f m / %.1f ft", rocket.diameter.meters, rocket.diameter.feet)
+                    )
+                    .padding(.horizontal, 32)
                     
-                    DetailRow(title: "MASS", data: String(format: "%.1f kg / %.1f lb", rocket.massKg, rocket.massLb))
-                        .padding(.horizontal, 32)
+                    DetailRow(
+                        title: "MASS",
+                        data: String(format: "%.1f kg / %.1f lb", rocket.mass.kg, rocket.mass.lb)
+                    )
+                    .padding(.horizontal, 32)
                     
-                    DetailRow(title: "PAYLOAD TO LEO", data: String(format: "%.1f kg / %.1f lb", rocket.heightMeter, rocket.heightFeet))
+                    ForEach(rocket.payload_weights) { payload in
+                        DetailRow(
+                            title: payload.name.uppercased(),
+                            data: String(format: "%.1f kg / %.1f lb", Double(payload.kg), Double(payload.lb))
+                        )
                         .padding(.horizontal, 32)
-                    
-                    DetailRow(title: "PAYLOAD TO GTO", data: String(format: "%.1f kg / %.1f lb", rocket.heightMeter, rocket.heightFeet))
-                        .padding(.horizontal, 32)
-                    DetailRow(title: "PAYLOAD TO MARS", data: String(format: "%.1f kg / %.1f lb", rocket.heightMeter, rocket.heightFeet))
-                        .padding(.horizontal, 32)
+                    }
                     
                     
                     Spacer()
@@ -85,7 +96,12 @@ struct RocketDetailView: View {
             }
             .navigationTitle(rocket.name)
             .navigationBarTitleDisplayMode(.inline)
-            .font(Font.custom("Nasalization", size: 5))
+            .navigationBarModifier(
+                backgroundColor: .clear,
+                foregroundColor: UIColor(named: "lightGreen") ?? .white,
+                font: UIFont(name: "Nasalization", size: 20)!,
+                withSeparator: false
+            )
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -100,7 +116,6 @@ struct RocketDetailView: View {
                 }
             }
         }
-        
     }
 }
 

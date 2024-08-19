@@ -15,15 +15,18 @@
 		028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028439A92C6A4AE600316DB3 /* SpaceX_iOSApp.swift */; };
 		028439AE2C6A4AE700316DB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028439AD2C6A4AE700316DB3 /* Assets.xcassets */; };
 		028439B12C6A4AE700316DB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */; };
+		028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028567EA2C733A0500B5D1CE /* NavigationBarModifier.swift */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
 		02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF4A2C6E29F800803662 /* BackButton.swift */; };
 		02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF4C2C6E45B300803662 /* DetailRow.swift */; };
 		02AEAF4F2C6E483A00803662 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */; };
-		02B99CDC2C7237F0000BAEED /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CDB2C7237F0000BAEED /* Network Manager.swift */; };
+		02B99CDC2C7237F0000BAEED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CDB2C7237F0000BAEED /* NetworkManager.swift */; };
 		02B99CE02C72399D000BAEED /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CDF2C72399D000BAEED /* APError.swift */; };
 		02B99CE22C7239C0000BAEED /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CE12C7239C0000BAEED /* Alert.swift */; };
+		02B99CE62C724F02000BAEED /* RocketListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CE52C724F02000BAEED /* RocketListViewModel.swift */; };
+		02B99CE92C729681000BAEED /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CE82C729681000BAEED /* RemoteImage.swift */; };
 		02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE3562C6B99BB006AC26B /* RocketsListView.swift */; };
 		02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */; };
 		02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35C2C6BA453006AC26B /* FavoritesView.swift */; };
@@ -40,6 +43,7 @@
 		028439A92C6A4AE600316DB3 /* SpaceX_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceX_iOSApp.swift; sourceTree = "<group>"; };
 		028439AD2C6A4AE700316DB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		028567EA2C733A0500B5D1CE /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
 		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
@@ -47,9 +51,11 @@
 		02AEAF4A2C6E29F800803662 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		02AEAF4C2C6E45B300803662 /* DetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
 		02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
-		02B99CDB2C7237F0000BAEED /* Network Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = "<group>"; };
+		02B99CDB2C7237F0000BAEED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		02B99CDF2C72399D000BAEED /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
 		02B99CE12C7239C0000BAEED /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		02B99CE52C724F02000BAEED /* RocketListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketListViewModel.swift; sourceTree = "<group>"; };
+		02B99CE82C729681000BAEED /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		02BCE3562C6B99BB006AC26B /* RocketsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsListView.swift; sourceTree = "<group>"; };
 		02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
 		02BCE35C2C6BA453006AC26B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				0280919E2C6B32D3002DBF5F /* Rocket.swift */,
+				02B99CE52C724F02000BAEED /* RocketListViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				02250B492C6C82FB0094700E /* Color++.swift */,
+				028567EA2C733A0500B5D1CE /* NavigationBarModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 		028439A82C6A4AE600316DB3 /* SpaceX iOS */ = {
 			isa = PBXGroup;
 			children = (
+				02B99CE72C7295E2000BAEED /* Image */,
 				02B99CDA2C7237BC000BAEED /* Managers */,
 				02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */,
 				02AEAF422C6DDA8C00803662 /* Font */,
@@ -166,7 +175,6 @@
 				028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */,
 				028091A92C6B403F002DBF5F /* SplashView.swift */,
 				02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */,
-
 				02AEAF4A2C6E29F800803662 /* BackButton.swift */,
 				02AEAF4C2C6E45B300803662 /* DetailRow.swift */,
 			);
@@ -195,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				02B99CDE2C723989000BAEED /* Alerts */,
-				02B99CDB2C7237F0000BAEED /* Network Manager.swift */,
+				02B99CDB2C7237F0000BAEED /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -207,6 +215,14 @@
 				02B99CE12C7239C0000BAEED /* Alert.swift */,
 			);
 			path = Alerts;
+			sourceTree = "<group>";
+		};
+		02B99CE72C7295E2000BAEED /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				02B99CE82C729681000BAEED /* RemoteImage.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +305,10 @@
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
 				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,
 				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
-				02B99CDC2C7237F0000BAEED /* Network Manager.swift in Sources */,
+				02B99CE62C724F02000BAEED /* RocketListViewModel.swift in Sources */,
+				02B99CDC2C7237F0000BAEED /* NetworkManager.swift in Sources */,
+				02B99CE92C729681000BAEED /* RemoteImage.swift in Sources */,
+				028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */,
 				02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */,
 				02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */,
 				02B99CE02C72399D000BAEED /* APError.swift in Sources */,

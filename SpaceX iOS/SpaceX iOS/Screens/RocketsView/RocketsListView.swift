@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct RocketsListView: View {
+    @StateObject var viewModel = RocketListViewModel()
     @State private var selectedRocket: Rocket? = nil
     @State private var isTapAnimating = false
     @State private var isDetailPresented = false
     let rockets = MockData.sampleRockets
+    
+//    init() {
+//        let appearance = UINavigationBarAppearance()
+//        appearance.configureWithTransparentBackground()
+//        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+//        UINavigationBar.appearance().standardAppearance = appearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+//    }
     
     var body: some View {
         NavigationStack {
@@ -25,7 +34,7 @@ struct RocketsListView: View {
                 VStack {
                     ScrollView {
                         VStack(spacing: 20) {
-                            ForEach(rockets, id: \.id) { rocket in
+                            ForEach(viewModel.rockets, id: \.id) { rocket in
                                 RocketListCell(
                                     rocket: rocket,
                                     isTapAnimating: selectedRocket?.id == rocket.id && isTapAnimating
@@ -52,10 +61,19 @@ struct RocketsListView: View {
             }
             .navigationTitle("SpaceX Rockets")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationBarModifier(
+                backgroundColor: .clear,
+                foregroundColor: .white,
+                font: UIFont(name: "Muli", size: 20)!,
+                withSeparator: false
+            )
             .navigationDestination(isPresented: $isDetailPresented) {
                 if let rocket = selectedRocket {
                     RocketDetailView(rocket: rocket)
                 }
+            }
+            .onAppear {
+                viewModel.getRockets()
             }
         }
     }

@@ -8,15 +8,7 @@
 import SwiftUI
 
 @main
-struct SpaceX_iOSApp: App {
-    init() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white] 
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    
+struct SpaceX_iOSApp: App {    
     var body: some Scene {
         WindowGroup {
             SplashView()
