@@ -26,6 +26,8 @@
 		028567FD2C736C2F00B5D1CE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 028567FC2C736C2F00B5D1CE /* FirebaseFirestore */; };
 		028567FF2C736C2F00B5D1CE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 028567FE2C736C2F00B5D1CE /* FirebaseFirestoreSwift */; };
 		028568012C736C2F00B5D1CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 028568002C736C2F00B5D1CE /* FirebaseStorage */; };
+		028568052C7388B800B5D1CE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 028568042C7388B800B5D1CE /* Realm */; };
+		028568072C7388B800B5D1CE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 028568062C7388B800B5D1CE /* RealmSwift */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
@@ -82,9 +84,11 @@
 				028567F92C736C2F00B5D1CE /* FirebaseDatabase in Frameworks */,
 				028568012C736C2F00B5D1CE /* FirebaseStorage in Frameworks */,
 				028567F32C736C2F00B5D1CE /* FirebaseAnalyticsSwift in Frameworks */,
+				028568052C7388B800B5D1CE /* Realm in Frameworks */,
 				028567F72C736C2F00B5D1CE /* FirebaseCrashlytics in Frameworks */,
 				028567F52C736C2F00B5D1CE /* FirebaseAuth in Frameworks */,
 				028567F12C736C2F00B5D1CE /* FirebaseAnalytics in Frameworks */,
+				028568072C7388B800B5D1CE /* RealmSwift in Frameworks */,
 				028567FD2C736C2F00B5D1CE /* FirebaseFirestore in Frameworks */,
 				028567FF2C736C2F00B5D1CE /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -281,6 +285,8 @@
 				028567FC2C736C2F00B5D1CE /* FirebaseFirestore */,
 				028567FE2C736C2F00B5D1CE /* FirebaseFirestoreSwift */,
 				028568002C736C2F00B5D1CE /* FirebaseStorage */,
+				028568042C7388B800B5D1CE /* Realm */,
+				028568062C7388B800B5D1CE /* RealmSwift */,
 			);
 			productName = "SpaceX iOS";
 			productReference = 028439A62C6A4AE600316DB3 /* SpaceX iOS.app */;
@@ -312,6 +318,7 @@
 			mainGroup = 0284399D2C6A4AE500316DB3;
 			packageReferences = (
 				028567EE2C736ACC00B5D1CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				028568032C7388B800B5D1CE /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 028439A72C6A4AE600316DB3 /* Products */;
 			projectDirPath = "";
@@ -600,6 +607,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		028568032C7388B800B5D1CE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -647,6 +662,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 028567EE2C736ACC00B5D1CE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		028568042C7388B800B5D1CE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 028568032C7388B800B5D1CE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		028568062C7388B800B5D1CE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 028568032C7388B800B5D1CE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
