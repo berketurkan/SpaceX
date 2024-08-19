@@ -24,7 +24,7 @@ struct RocketsListView: View {
                     ScrollView {
                         VStack(spacing: 20) {
                             ForEach(rockets, id: \.id) { rocket in
-                                RocketListCell(selectedRocket: $selectedRocket,rocket: rocket)
+                                RocketListCell(selectedRocket: $selectedRocket, rocket: rocket)
                                     .padding(.horizontal, 20)
                             }
                         }

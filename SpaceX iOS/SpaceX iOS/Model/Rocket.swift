@@ -39,7 +39,7 @@ struct RocketResponse: Decodable {
 struct MockData {
     static let sampleRocket = Rocket(id: 000,
                                      name: "Test Rocket",
-                                     description: "Amazing",
+                                     description: "The Dragon spacecraft is capable of carrying up to 7 passengers to and from Earth orbit, and beyond. It is the only spacecraft currently flying that is capable of returning significant amounts of cargo to Earth, and is the first private spacecraft to take humans to the space station.",
                                      imageURL: "TestFalcon",
                                      isFavorite: false,
                                      heightMeter: 111,

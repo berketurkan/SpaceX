@@ -17,6 +17,10 @@
 		028439B12C6A4AE700316DB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
+		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
+		02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF4A2C6E29F800803662 /* BackButton.swift */; };
+		02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF4C2C6E45B300803662 /* DetailRow.swift */; };
+		02AEAF4F2C6E483A00803662 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */; };
 		02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE3562C6B99BB006AC26B /* RocketsListView.swift */; };
 		02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */; };
 		02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35C2C6BA453006AC26B /* FavoritesView.swift */; };
@@ -36,6 +40,10 @@
 		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
 		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
+		02AEAF482C6E223000803662 /* RocketDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketDetailView.swift; sourceTree = "<group>"; };
+		02AEAF4A2C6E29F800803662 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		02AEAF4C2C6E45B300803662 /* DetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
+		02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		02BCE3562C6B99BB006AC26B /* RocketsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsListView.swift; sourceTree = "<group>"; };
 		02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
 		02BCE35C2C6BA453006AC26B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -73,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				028091A02C6B32E8002DBF5F /* RocketListCell.swift */,
+				02AEAF482C6E223000803662 /* RocketDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +159,9 @@
 				028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */,
 				028091A92C6B403F002DBF5F /* SplashView.swift */,
 				02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */,
+
+				02AEAF4A2C6E29F800803662 /* BackButton.swift */,
+				02AEAF4C2C6E45B300803662 /* DetailRow.swift */,
 			);
 			path = "SpaceX iOS";
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 			children = (
 				02AEAF432C6DDAA800803662 /* nasalization-rg.otf */,
 				02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */,
+				02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -230,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				028439B12C6A4AE700316DB3 /* Preview Assets.xcassets in Resources */,
+				02AEAF4F2C6E483A00803662 /* Muli-Bold.ttf in Resources */,
 				028439AE2C6A4AE700316DB3 /* Assets.xcassets in Resources */,
 				02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */,
 				02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */,
@@ -250,6 +264,9 @@
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
 				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,
 				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
+				02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */,
+				02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */,
+				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
 				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
 				028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */,
 				02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */,
