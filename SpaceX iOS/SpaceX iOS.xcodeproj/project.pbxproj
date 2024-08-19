@@ -21,6 +21,9 @@
 		02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF4A2C6E29F800803662 /* BackButton.swift */; };
 		02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF4C2C6E45B300803662 /* DetailRow.swift */; };
 		02AEAF4F2C6E483A00803662 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */; };
+		02B99CDC2C7237F0000BAEED /* Network Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CDB2C7237F0000BAEED /* Network Manager.swift */; };
+		02B99CE02C72399D000BAEED /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CDF2C72399D000BAEED /* APError.swift */; };
+		02B99CE22C7239C0000BAEED /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B99CE12C7239C0000BAEED /* Alert.swift */; };
 		02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE3562C6B99BB006AC26B /* RocketsListView.swift */; };
 		02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */; };
 		02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35C2C6BA453006AC26B /* FavoritesView.swift */; };
@@ -44,6 +47,9 @@
 		02AEAF4A2C6E29F800803662 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		02AEAF4C2C6E45B300803662 /* DetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRow.swift; sourceTree = "<group>"; };
 		02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
+		02B99CDB2C7237F0000BAEED /* Network Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network Manager.swift"; sourceTree = "<group>"; };
+		02B99CDF2C72399D000BAEED /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
+		02B99CE12C7239C0000BAEED /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		02BCE3562C6B99BB006AC26B /* RocketsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketsListView.swift; sourceTree = "<group>"; };
 		02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
 		02BCE35C2C6BA453006AC26B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		028439A82C6A4AE600316DB3 /* SpaceX iOS */ = {
 			isa = PBXGroup;
 			children = (
+				02B99CDA2C7237BC000BAEED /* Managers */,
 				02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */,
 				02AEAF422C6DDA8C00803662 /* Font */,
 				0280919C2C6B3266002DBF5F /* Screens */,
@@ -182,6 +189,24 @@
 				02AEAF4E2C6E483A00803662 /* Muli-Bold.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		02B99CDA2C7237BC000BAEED /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				02B99CDE2C723989000BAEED /* Alerts */,
+				02B99CDB2C7237F0000BAEED /* Network Manager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		02B99CDE2C723989000BAEED /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				02B99CDF2C72399D000BAEED /* APError.swift */,
+				02B99CE12C7239C0000BAEED /* Alert.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,11 +289,14 @@
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
 				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,
 				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
+				02B99CDC2C7237F0000BAEED /* Network Manager.swift in Sources */,
 				02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */,
 				02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */,
+				02B99CE02C72399D000BAEED /* APError.swift in Sources */,
 				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
 				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
 				028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */,
+				02B99CE22C7239C0000BAEED /* Alert.swift in Sources */,
 				02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
