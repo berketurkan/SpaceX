@@ -12,19 +12,6 @@ struct RocketDetailView: View {
     let rocket: Rocket
     @Environment(\.presentationMode) private var presentationMode
     
-    
-    //    init(rocket: Rocket) {
-    //        self.rocket = rocket
-    //        let appearance = UINavigationBarAppearance()
-    //        appearance.configureWithTransparentBackground()
-    //        appearance.titleTextAttributes = [
-    //            .foregroundColor: UIColor(named: "lightGreen") ?? UIColor.white,
-    //            .font: UIFont(name: "Nasalization", size: 20)!
-    //        ]
-    //        UINavigationBar.appearance().standardAppearance = appearance
-    //        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    //    }
-    
     var body: some View {
         ZStack {
             Image("SpaceXBackGround")
@@ -34,11 +21,9 @@ struct RocketDetailView: View {
                 .edgesIgnoringSafeArea(.all)
                 .blur(radius: 8)
             
-            ScrollView {
-                VStack {
+            VStack {
+                ScrollView {
                     HStack(spacing: 15) {
-                        //Image("TestFalcon")
-                        //.resizable()
                         RocketRemoteImage(urlString: rocket.imageURL)
                             .aspectRatio( contentMode: .fill)
                             .frame(width: 275, height: 175)
@@ -89,10 +74,32 @@ struct RocketDetailView: View {
                         )
                         .padding(.horizontal, 32)
                     }
-                    
-                    
-                    Spacer()
                 }
+                .frame(minHeight: 550)
+                Spacer(minLength: 0)
+                
+                VStack {
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 0) {
+                            ForEach(rocket.flickr_images, id: \.self) { imageUrl in
+                                RocketRemoteImage(urlString: imageUrl)
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: (UIScreen.main.bounds.width - 25) / 2,
+                                           height: 200
+                                    )
+                                    //.frame(width: (400) / 2, height: 200)
+                                    //.padding(.vertical, 0)
+                                    .clipped()
+                                    
+                            }
+                        }
+                        //.padding(.vertical, 0)
+                        .padding(.horizontal, 40)
+                    }
+                }
+                
+                Spacer(minLength: 150)
+                
             }
             .navigationTitle(rocket.name)
             .navigationBarTitleDisplayMode(.inline)

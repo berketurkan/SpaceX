@@ -14,13 +14,13 @@ struct RocketsListView: View {
     @State private var isDetailPresented = false
     let rockets = MockData.sampleRockets
     
-//    init() {
-//        let appearance = UINavigationBarAppearance()
-//        appearance.configureWithTransparentBackground()
-//        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-//        UINavigationBar.appearance().standardAppearance = appearance
-//        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-//    }
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
     
     var body: some View {
         NavigationStack {
@@ -59,6 +59,7 @@ struct RocketsListView: View {
                 }
                 .padding(.top, 60)
             }
+                        
             .navigationTitle("SpaceX Rockets")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarModifier(
