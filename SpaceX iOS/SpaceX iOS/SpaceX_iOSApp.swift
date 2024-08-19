@@ -12,7 +12,7 @@ struct SpaceX_iOSApp: App {
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Set title color
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white] 
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }

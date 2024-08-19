@@ -7,25 +7,30 @@
 
 import SwiftUI
 
-struct Rocket: Decodable, Identifiable {
+struct Rocket: Hashable, Decodable, Identifiable {
+    
+    static func == (lhs: Rocket, rhs: Rocket) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     
     let id: Int
     let name: String
     let description: String
     let imageURL: String
     var isFavorite = false
-    let heightMeter: Float
-    let heightFeet: Float
-    let diameterMeter: Float
-    let diameterFeet: Float
-    let massKg: Float
-    let massLb: Float
+    let heightMeter: Double
+    let heightFeet: Double
+    let diameterMeter: Double
+    let diameterFeet: Double
+    let massKg: Double
+    let massLb: Double
     let images: [String]
     let payloadWeights: [Payload]
     
 }
 
-struct Payload: Decodable,Identifiable {
+struct Payload: Decodable,Identifiable, Hashable {
     let id: Int
     let name: String
     let kg: Int
@@ -38,7 +43,7 @@ struct RocketResponse: Decodable {
 
 struct MockData {
     static let sampleRocket = Rocket(id: 000,
-                                     name: "Test Rocket",
+                                     name: "Test Rocket1",
                                      description: "The Dragon spacecraft is capable of carrying up to 7 passengers to and from Earth orbit, and beyond. It is the only spacecraft currently flying that is capable of returning significant amounts of cargo to Earth, and is the first private spacecraft to take humans to the space station.",
                                      imageURL: "TestFalcon",
                                      isFavorite: false,
@@ -52,7 +57,7 @@ struct MockData {
                                      payloadWeights: [])
     
     static let sampleRocket1 = Rocket(id: 001,
-                                      name: "Test Rocket",
+                                      name: "Test Rocket2",
                                       description: "Amazing",
                                       imageURL: "TestFalcon",
                                       isFavorite: false,
@@ -66,7 +71,7 @@ struct MockData {
                                       payloadWeights: [])
     
     static let sampleRocket2 = Rocket(id: 002,
-                                      name: "Test Rocket",
+                                      name: "Test Rocket3",
                                       description: "Amazing",
                                       imageURL: "TestFalcon",
                                       isFavorite: false,
@@ -80,7 +85,7 @@ struct MockData {
                                       payloadWeights: [])
     
     static let sampleRocket3 = Rocket(id: 003,
-                                      name: "Test Rocket",
+                                      name: "Test Rocket4",
                                       description: "Amazing",
                                       imageURL: "TestFalcon",
                                       isFavorite: false,

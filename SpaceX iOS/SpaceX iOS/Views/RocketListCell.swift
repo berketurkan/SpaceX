@@ -8,23 +8,20 @@
 import SwiftUI
 
 struct RocketListCell: View {
-    
-    @Binding var selectedRocket: Rocket?
-    @State var rocket: Rocket
+    var rocket: Rocket
+    var isTapAnimating: Bool
     
     var body: some View {
         VStack {
             HStack {
                 Text(rocket.name)
                     .font(Font.custom("Nasalization", size: 17))
-                    .foregroundColor(selectedRocket?.id == rocket.id ? Color("lightGreen") : .white)
-                    .padding(.top, 0)
+                    .foregroundColor(isTapAnimating ? Color("lightGreen") : .white)                    .padding(.top, 0)
                     .padding(.trailing, 15)
                 
                 Spacer()
                 
                 Button {
-                    rocket.isFavorite.toggle()
                 } label: {
                     Image("FavButton")
                         .resizable()
@@ -49,16 +46,15 @@ struct RocketListCell: View {
         .frame(width: 359, height: 180)
         .background(Color.white.opacity(0.1))
         .cornerRadius(15)
-        .overlay(RoundedRectangle(cornerRadius: 15).stroke(rocket.id == selectedRocket?.id ? Color("lightGreen") : Color.clear, lineWidth: 1))
-        .onTapGesture {
-            selectedRocket = rocket
-        }
-        
+        .overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(isTapAnimating ? Color("lightGreen") : Color.clear, lineWidth: 1)
+        )
     }
 }
 
 struct RocketListCell_Previews: PreviewProvider {
     static var previews: some View {
-        RocketListCell(selectedRocket: .constant(MockData.sampleRocket1), rocket: MockData.sampleRocket1)
+        RocketListCell(rocket: MockData.sampleRocket1, isTapAnimating: false)
     }
 }

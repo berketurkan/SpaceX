@@ -9,10 +9,12 @@ import SwiftUI
 
 struct RocketDetailView: View {
     
-    @Binding var rocket: Rocket
+    let rocket: Rocket
+    @Environment(\.presentationMode) private var presentationMode
+
     
-    init(rocket: Binding<Rocket>) {
-        self._rocket = rocket
+    init(rocket: Rocket) {
+        self.rocket = rocket
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [
@@ -43,7 +45,7 @@ struct RocketDetailView: View {
                             .padding(.trailing, 30)
                         
                         Button {
-                            rocket.isFavorite.toggle()
+                            //rocket.isFavorite.toggle()
                         } label: {
                             Image("FavButton")
                                 .resizable()
@@ -84,10 +86,11 @@ struct RocketDetailView: View {
             .navigationTitle(rocket.name)
             .navigationBarTitleDisplayMode(.inline)
             .font(Font.custom("Nasalization", size: 5))
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "chevron.left")
                             .resizable()
@@ -104,7 +107,7 @@ struct RocketDetailView: View {
 struct RocketDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            RocketDetailView(rocket: .constant(MockData.sampleRocket))
+            RocketDetailView(rocket: MockData.sampleRocket)
         }
     }
 }
