@@ -7,29 +7,60 @@
 
 import SwiftUI
 import RealmSwift
+import FirebaseFirestore
 
 final class RocketListViewModel: ObservableObject {
     
     @Published var rockets: [Rocket] = []
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
+    
     private let realm = try! Realm()
+    private let database = Firestore.firestore()
     
     func toggleFavorite(for rocket: Rocket) {
         for i in 0..<rockets.count {
             if rockets[i].id == rocket.id {
                 rockets[i].toggleFavorite()
                 if rockets[i].isFavorite {
-                    saveFavoriteID(for: rockets[i])
+                    saveFavoriteRealm(for: rockets[i])
+                    saveFavoriteRocketToFirestore(rockets[i])
                 } else {
-                    removeFavoriteID(for: rockets[i])
+                    removeFavoriteRealm(for: rockets[i])
+                    removeFavoriteRocketFromFirestore(rockets[i])
+
                 }
                 break
             }
         }
     }
     
-    private func saveFavoriteID(for rocket: Rocket) {
+    private func saveFavoriteRocketToFirestore(_ rocket: Rocket) {
+        let favoriteData: [String: Any] = [
+            "id": rocket.id,
+            "name": rocket.name
+        ]
+        
+        database.collection("favRockets").document(rocket.id).setData(favoriteData) { error in
+            if let error = error {
+                print("Error saving rocket to Firestore: \(error)")
+            } else {
+                print("Rocket saved successfully to Firestore")
+            }
+        }
+    }
+    
+    private func removeFavoriteRocketFromFirestore(_ rocket: Rocket) {
+        database.collection("favRockets").document(rocket.id).delete { error in
+            if let error = error {
+                print("Error removing rocket from Firestore: \(error)")
+            } else {
+                print("Rocket removed successfully from Firestore")
+            }
+        }
+    }
+    
+    private func saveFavoriteRealm(for rocket: Rocket) {
         let favoriteRocket = FavoriteRocket()
         favoriteRocket.id = rocket.id
         
@@ -44,7 +75,7 @@ final class RocketListViewModel: ObservableObject {
         }
     }
     
-    private func removeFavoriteID(for rocket: Rocket) {
+    private func removeFavoriteRealm(for rocket: Rocket) {
         if let favorite = realm.object(ofType: FavoriteRocket.self, forPrimaryKey: rocket.id) {
             do {
                 try realm.write {
