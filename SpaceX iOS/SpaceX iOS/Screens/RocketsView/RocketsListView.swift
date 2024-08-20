@@ -37,7 +37,8 @@ struct RocketsListView: View {
                             ForEach($viewModel.rockets, id: \.id) { $rocket in
                                 RocketListCell(
                                     rocket: $rocket,
-                                    isTapAnimating: selectedRocket?.id == rocket.id && isTapAnimating
+                                    isTapAnimating: selectedRocket?.id == rocket.id && isTapAnimating,
+                                    viewModel: viewModel
                                 )
                                 .padding(.horizontal, 20)
                                 .onTapGesture {
@@ -76,7 +77,9 @@ struct RocketsListView: View {
                 
             }
             .onAppear {
-                viewModel.getRockets()
+                if viewModel.rockets.isEmpty {
+                    viewModel.getRockets()
+                }
             }
         }
     }

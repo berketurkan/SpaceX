@@ -28,6 +28,7 @@
 		028568012C736C2F00B5D1CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 028568002C736C2F00B5D1CE /* FirebaseStorage */; };
 		0286E0C12C746D7F0049B9EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0286E0C02C746D7F0049B9EE /* RealmSwift */; };
 		0286E0C22C7472AF0049B9EE /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0286E0C02C746D7F0049B9EE /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
@@ -71,6 +72,7 @@
 		028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		028567EA2C733A0500B5D1CE /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		028567EC2C73692D00B5D1CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRocket.swift; sourceTree = "<group>"; };
 		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
 		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				0280919E2C6B32D3002DBF5F /* Rocket.swift */,
 				02B99CE52C724F02000BAEED /* RocketListViewModel.swift */,
+				0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				028091A62C6B37E2002DBF5F /* SpaceXTabView.swift in Sources */,
 				028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */,
 				028091AA2C6B403F002DBF5F /* SplashView.swift in Sources */,
+				0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */,
 				0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */,
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
 				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,

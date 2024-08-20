@@ -32,8 +32,8 @@ struct RocketDetailView: View {
                             .padding(.trailing, 0)
                         
                         Button {
-                            //viewModel.toggleFavorite(for: rocket)
-                            rocket.toggleFavorite()
+                            viewModel.toggleFavorite(for: rocket)
+                            //rocket.toggleFavorite()
                         } label: {
                             Image("FavButton")
                                 .resizable()

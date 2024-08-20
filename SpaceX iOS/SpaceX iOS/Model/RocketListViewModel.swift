@@ -6,22 +6,58 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 final class RocketListViewModel: ObservableObject {
     
     @Published var rockets: [Rocket] = []
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
+    private let realm = try! Realm()
     
     func toggleFavorite(for rocket: Rocket) {
-        if let index = rockets.firstIndex(where: { existingRocket in
-            return existingRocket.id == rocket.id
-        }) {
-            rockets[index].isFavorite.toggle()
+        for i in 0..<rockets.count {
+            if rockets[i].id == rocket.id {
+                rockets[i].toggleFavorite()
+                if rockets[i].isFavorite {
+                    saveFavoriteID(for: rockets[i])
+                } else {
+                    removeFavoriteID(for: rockets[i])
+                }
+                break
+            }
+        }
+    }
+    
+    private func saveFavoriteID(for rocket: Rocket) {
+        let favoriteRocket = FavoriteRocket()
+        favoriteRocket.id = rocket.id
+        
+        do {
+            try realm.write {
+                if realm.object(ofType: FavoriteRocket.self, forPrimaryKey: rocket.id) == nil {
+                    realm.add(favoriteRocket)
+                }
+            }
+        } catch {
+            print("Error adding favorite rocket ID: \(error)")
+        }
+    }
+    
+    private func removeFavoriteID(for rocket: Rocket) {
+        if let favorite = realm.object(ofType: FavoriteRocket.self, forPrimaryKey: rocket.id) {
+            do {
+                try realm.write {
+                    realm.delete(favorite)
+                }
+            } catch {
+                print("Error removing favorite rocket ID: \(error)")
+            }
         }
     }
     
     func getRockets() {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         print("[DEBUG] getRockets() called")
         isLoading = true
         
@@ -39,13 +75,13 @@ final class RocketListViewModel: ObservableObject {
                         //print("[DEBUG] Rocket ID: \(rocket.id)")
                         //print("[DEBUG] Name: \(rocket.name)")
                         //print("[DEBUG] Description: \(rocket.description)")
-                        print("[DEBUG] Image URL: \(rocket.imageURL)")
-                        print("[DEBUG] Flickr Images: \(rocket.flickr_images.joined(separator: ", "))")
+                        //print("[DEBUG] Image URL: \(rocket.imageURL)")
+                        //print("[DEBUG] Flickr Images: \(rocket.flickr_images.joined(separator: ", "))")
                         //print("[DEBUG] Height: \(rocket.height.meters) meters / \(rocket.height.feet) feet")
                         //print("[DEBUG] Diameter: \(rocket.diameter.meters) meters / \(rocket.diameter.feet) feet")
                         //print("[DEBUG] Mass: \(rocket.mass.kg) kg / \(rocket.mass.lb) lb")
                         //print("[DEBUG] Payload Weights: \(rocket.payload_weights.map { "\($0.name): \($0.kg) kg / \($0.lb) lb" }.joined(separator: ", "))")
-                        print("[DEBUG] ----------")
+                        //print("[DEBUG] ----------")
                     }
                     
                 case .failure(let error):

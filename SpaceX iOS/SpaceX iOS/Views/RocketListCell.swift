@@ -10,7 +10,7 @@ import SwiftUI
 struct RocketListCell: View {
     @Binding var rocket: Rocket
     var isTapAnimating: Bool
-    //@ObservedObject var viewModel: RocketListViewModel
+    @ObservedObject var viewModel: RocketListViewModel
     
     var body: some View {
         VStack {
@@ -27,8 +27,8 @@ struct RocketListCell: View {
                 Spacer()
                 
                 Button {
-                    //viewModel.toggleFavorite(for: rocket)
-                    rocket.toggleFavorite()
+                    viewModel.toggleFavorite(for: rocket)
+                    //rocket.toggleFavorite()
                 } label: {
                     Image("FavButton")
                         .resizable()
