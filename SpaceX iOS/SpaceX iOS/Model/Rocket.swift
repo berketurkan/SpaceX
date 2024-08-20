@@ -17,7 +17,7 @@ struct Rocket: Hashable, Decodable, Identifiable {
     let name: String
     let description: String
     var imageURL = ""
-    var isFavorite = false
+    var isFavorite: Bool
     let height: Dimension
     let diameter: Dimension
     let mass: Mass
@@ -60,7 +60,13 @@ struct Rocket: Hashable, Decodable, Identifiable {
         flickr_images = try container.decode([String].self, forKey: .flickr_images)
         payload_weights = try container.decode([Payload].self, forKey: .payload_weights)
         imageURL = flickr_images.first ?? ""
+        isFavorite = false
     }
+    
+    mutating func toggleFavorite() {
+        self.isFavorite.toggle()
+    }
+    
 }
 
 struct Dimension: Decodable, Hashable {

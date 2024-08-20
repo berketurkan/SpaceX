@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct RocketListCell: View {
-    var rocket: Rocket
+    @Binding var rocket: Rocket
     var isTapAnimating: Bool
+    //@ObservedObject var viewModel: RocketListViewModel
     
     var body: some View {
         VStack {
@@ -26,6 +27,8 @@ struct RocketListCell: View {
                 Spacer()
                 
                 Button {
+                    //viewModel.toggleFavorite(for: rocket)
+                    rocket.toggleFavorite()
                 } label: {
                     Image("FavButton")
                         .resizable()
@@ -34,11 +37,7 @@ struct RocketListCell: View {
                         .scaledToFill()
                         .frame(width: 40, height: 40)
                 }
-                //.padding(.trailing,0)
-                //.padding(.top,0)
             }
-            //.padding(.trailing,0)
-            //.padding(.top,0)
             
             Spacer(minLength: 0)
             
@@ -60,8 +59,8 @@ struct RocketListCell: View {
     }
 }
 
-struct RocketListCell_Previews: PreviewProvider {
-    static var previews: some View {
-        RocketListCell(rocket: MockData.sampleRocket1, isTapAnimating: false)
-    }
-}
+//struct RocketListCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RocketListCell(rocket: MockData.sampleRocket1, isTapAnimating: false)
+//    }
+//}

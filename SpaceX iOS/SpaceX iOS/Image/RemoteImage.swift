@@ -12,11 +12,25 @@ final class ImageLoader: ObservableObject {
     @Published var image: Image? = nil
     
     func load(fromURLString urlString: String) {
-        NetworkManager.shared.downloadImage(fromURLString: urlString) { uiImage in
-            guard let uiImage = uiImage else { return }
+        let correctedURLString = correctImgurURLIfNeeded(urlString: urlString)
+        
+        NetworkManager.shared.downloadImage(fromURLString: correctedURLString) { uiImage in
             DispatchQueue.main.async {
-                self.image = Image(uiImage: uiImage)
+                if let uiImage = uiImage {
+                    self.image = Image(uiImage: uiImage)
+                } else {
+                    print("[ERROR] Failed to load image from URL: \(correctedURLString)")
+                    self.image = Image("TestFalcon")
+                }
             }
+        }
+    }
+    
+    private func correctImgurURLIfNeeded(urlString: String) -> String {
+        if urlString.starts(with: "https://imgur.com/") {
+            return urlString.replacingOccurrences(of: "https://imgur.com/", with: "https://i.imgur.com/")
+        } else {
+            return urlString
         }
     }
 }

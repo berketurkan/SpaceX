@@ -9,8 +9,9 @@ import SwiftUI
 
 struct RocketDetailView: View {
     
-    let rocket: Rocket
+    @Binding var rocket: Rocket
     @Environment(\.presentationMode) private var presentationMode
+    @ObservedObject var viewModel: RocketListViewModel
     
     var body: some View {
         ZStack {
@@ -31,7 +32,8 @@ struct RocketDetailView: View {
                             .padding(.trailing, 0)
                         
                         Button {
-                            //rocket.isFavorite.toggle()
+                            //viewModel.toggleFavorite(for: rocket)
+                            rocket.toggleFavorite()
                         } label: {
                             Image("FavButton")
                                 .resizable()
@@ -87,13 +89,10 @@ struct RocketDetailView: View {
                                     .frame(width: (UIScreen.main.bounds.width - 25) / 2,
                                            height: 200
                                     )
-                                    //.frame(width: (400) / 2, height: 200)
-                                    //.padding(.vertical, 0)
                                     .clipped()
                                     
                             }
                         }
-                        //.padding(.vertical, 0)
                         .padding(.horizontal, 40)
                     }
                 }
@@ -126,10 +125,10 @@ struct RocketDetailView: View {
     }
 }
 
-struct RocketDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            RocketDetailView(rocket: MockData.sampleRocket)
-        }
-    }
-}
+//struct RocketDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            RocketDetailView(rocket: MockData.sampleRocket)
+//        }
+//    }
+//}

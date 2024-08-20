@@ -34,9 +34,9 @@ struct RocketsListView: View {
                 VStack {
                     ScrollView {
                         VStack(spacing: 20) {
-                            ForEach(viewModel.rockets, id: \.id) { rocket in
+                            ForEach($viewModel.rockets, id: \.id) { $rocket in
                                 RocketListCell(
-                                    rocket: rocket,
+                                    rocket: $rocket,
                                     isTapAnimating: selectedRocket?.id == rocket.id && isTapAnimating
                                 )
                                 .padding(.horizontal, 20)
@@ -59,7 +59,7 @@ struct RocketsListView: View {
                 }
                 .padding(.top, 60)
             }
-                        
+            
             .navigationTitle("SpaceX Rockets")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarModifier(
@@ -69,9 +69,11 @@ struct RocketsListView: View {
                 withSeparator: false
             )
             .navigationDestination(isPresented: $isDetailPresented) {
-                if let rocket = selectedRocket {
-                    RocketDetailView(rocket: rocket)
+                
+                if let selectedRocket = selectedRocket {
+                    RocketDetailView(rocket: $viewModel.rockets[viewModel.rockets.firstIndex(where: { $0.id == selectedRocket.id })!], viewModel: viewModel)
                 }
+                
             }
             .onAppear {
                 viewModel.getRockets()

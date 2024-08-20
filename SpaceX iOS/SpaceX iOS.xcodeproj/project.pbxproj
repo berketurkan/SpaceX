@@ -27,6 +27,7 @@
 		028567FF2C736C2F00B5D1CE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 028567FE2C736C2F00B5D1CE /* FirebaseFirestoreSwift */; };
 		028568012C736C2F00B5D1CE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 028568002C736C2F00B5D1CE /* FirebaseStorage */; };
 		0286E0C12C746D7F0049B9EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0286E0C02C746D7F0049B9EE /* RealmSwift */; };
+		0286E0C22C7472AF0049B9EE /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0286E0C02C746D7F0049B9EE /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
@@ -51,6 +52,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0286E0C22C7472AF0049B9EE /* RealmSwift in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
