@@ -44,6 +44,7 @@
 		02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */; };
 		02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35C2C6BA453006AC26B /* FavoritesView.swift */; };
 		02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */; };
+		02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,7 @@
 		02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
 		02BCE35C2C6BA453006AC26B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
+		02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		028091982C6B324A002DBF5F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				02DC8AAB2C75DBA500C55CAF /* CustomComponents */,
 				0280919D2C6B32BF002DBF5F /* Extensions */,
 			);
 			path = Utilities;
@@ -216,9 +219,6 @@
 				028439AF2C6A4AE700316DB3 /* Preview Content */,
 				028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */,
 				028091A92C6B403F002DBF5F /* SplashView.swift */,
-				02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */,
-				02AEAF4A2C6E29F800803662 /* BackButton.swift */,
-				02AEAF4C2C6E45B300803662 /* DetailRow.swift */,
 			);
 			path = "SpaceX iOS";
 			sourceTree = "<group>";
@@ -272,6 +272,17 @@
 				02B99CE82C729681000BAEED /* RemoteImage.swift */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		02DC8AAB2C75DBA500C55CAF /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				02BCE35A2C6BA34C006AC26B /* CustomTabButton.swift */,
+				02AEAF4A2C6E29F800803662 /* BackButton.swift */,
+				02AEAF4C2C6E45B300803662 /* DetailRow.swift */,
+				02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */,
+			);
+			path = CustomComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +416,7 @@
 				028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */,
 				02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */,
 				02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */,
+				02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */,
 				02B99CE02C72399D000BAEED /* APError.swift in Sources */,
 				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
 				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
@@ -548,8 +560,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,8 +590,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
