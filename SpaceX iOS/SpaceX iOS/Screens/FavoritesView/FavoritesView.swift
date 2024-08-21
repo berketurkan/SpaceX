@@ -1,16 +1,10 @@
-//
-//  FavoritesView.swift
-//  SpaceX iOS
-//
-//  Created by Vestel on 13.08.2024.
-//
-
 import SwiftUI
 
 struct FavoritesView: View {
     
     @ObservedObject var viewModel: RocketListViewModel
     @State private var selectedRocket: Rocket? = nil
+    @State private var isDetailPresented = false
     @State private var isTapAnimating = false
     
     init(viewModel: RocketListViewModel) {
@@ -49,6 +43,7 @@ struct FavoritesView: View {
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                         withAnimation {
                                             isTapAnimating = false
+                                            isDetailPresented = true
                                         }
                                     }
                                 }
@@ -68,15 +63,16 @@ struct FavoritesView: View {
                 font: UIFont(name: "Muli", size: 20)!,
                 withSeparator: false
             )
+            .navigationDestination(isPresented: $isDetailPresented) {
+                
+                if let selectedRocket = selectedRocket {
+                    RocketDetailView(rocket: $viewModel.rockets[viewModel.rockets.firstIndex(where: { $0.id == selectedRocket.id })!], viewModel: viewModel)
+                }
+                
+            }
             .onAppear {
                 viewModel.fetchFavoriteRocketsFromRealm()
             }
         }
     }
 }
-
-//struct FavoritesView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FavoritesView()
-//    }
-//}
