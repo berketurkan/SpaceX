@@ -9,14 +9,15 @@ import SwiftUI
 
 struct SpaceXTabView: View {
     
+    @StateObject var viewModel = RocketListViewModel()
     @State private var selectedTab = 0
     
     var body: some View {
         ZStack {
             if selectedTab == 0 {
-                RocketsListView()
+                RocketsListView( viewModel: viewModel)
             } else if selectedTab == 1 {
-                FavoritesView()
+                FavoritesView(viewModel: viewModel)
             } else if selectedTab == 2 {
                 UpcomingView()
             }
@@ -59,7 +60,7 @@ struct SpaceXTabView: View {
                     }
                 )
             }
-           
+            
             .padding()
             .frame(height: 55)
             .background(Color(.gray).opacity(0.9))
@@ -70,7 +71,11 @@ struct SpaceXTabView: View {
             .padding(.bottom, 30)
             
         }
-        
+        .onAppear {
+            if viewModel.rockets.isEmpty {
+                viewModel.getRockets()
+            }
+        }
     }
 }
 

@@ -12,6 +12,7 @@ import FirebaseFirestore
 final class RocketListViewModel: ObservableObject {
     
     @Published var rockets: [Rocket] = []
+    @Published var favoriteRockets: [Rocket] = []
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
     
@@ -28,10 +29,27 @@ final class RocketListViewModel: ObservableObject {
                 } else {
                     removeFavoriteRealm(for: rockets[i])
                     removeFavoriteRocketFromFirestore(rockets[i])
-
+                    removeRocketFromFavorites(rocket)
                 }
                 break
             }
+        }
+    }
+    
+    func fetchFavoriteRocketsFromRealm() {
+        let favoriteRocketObjects = realm.objects(FavoriteRocket.self)
+        var favorites: [Rocket] = []
+        
+        for favoriteRocket in favoriteRocketObjects {
+            for rocket in rockets {
+                if favoriteRocket.id == rocket.id {
+                    favorites.append(rocket)
+                    break
+                }
+            }
+        }
+        DispatchQueue.main.async {
+            self.favoriteRockets = favorites
         }
     }
     
@@ -72,6 +90,16 @@ final class RocketListViewModel: ObservableObject {
             }
         } catch {
             print("Error adding favorite rocket ID: \(error)")
+        }
+    }
+    
+    private func removeRocketFromFavorites(_ rocket: Rocket) {
+        // Iterate to find the index and remove the rocket from favoriteRockets
+        for i in 0..<favoriteRockets.count {
+            if favoriteRockets[i].id == rocket.id {
+                favoriteRockets.remove(at: i)
+                break
+            }
         }
     }
     

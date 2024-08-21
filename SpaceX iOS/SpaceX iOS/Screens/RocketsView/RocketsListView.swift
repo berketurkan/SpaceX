@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct RocketsListView: View {
-    @StateObject var viewModel = RocketListViewModel()
+//    @StateObject var viewModel = RocketListViewModel()
+    @ObservedObject var viewModel: RocketListViewModel
     @State private var selectedRocket: Rocket? = nil
     @State private var isTapAnimating = false
     @State private var isDetailPresented = false
     let rockets = MockData.sampleRockets
     
-    init() {
+    init(viewModel: RocketListViewModel) {
+        self.viewModel = viewModel
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -76,18 +78,18 @@ struct RocketsListView: View {
                 }
                 
             }
-            .onAppear {
-                if viewModel.rockets.isEmpty {
-                    viewModel.getRockets()
-                }
-            }
+//            .onAppear {
+//                if viewModel.rockets.isEmpty {
+//                    viewModel.getRockets()
+//                }
+//            }
         }
     }
 }
 
 
-struct RocketsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        RocketsListView()
-    }
-}
+//struct RocketsListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RocketsListView()
+//    }
+//}
