@@ -46,6 +46,7 @@
 		02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */; };
 		02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */; };
 		02DC8AAF2C7618EB00C55CAF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */; };
+		02DC8AB12C762BD400C55CAF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8AB02C762BD400C55CAF /* Validation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -93,6 +94,7 @@
 		02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
 		02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		02DC8AB02C762BD400C55CAF /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			children = (
 				02DC8AAB2C75DBA500C55CAF /* CustomComponents */,
 				0280919D2C6B32BF002DBF5F /* Extensions */,
+				02DC8AB02C762BD400C55CAF /* Validation.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				02B99CDC2C7237F0000BAEED /* NetworkManager.swift in Sources */,
 				02B99CE92C729681000BAEED /* RemoteImage.swift in Sources */,
 				028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */,
+				02DC8AB12C762BD400C55CAF /* Validation.swift in Sources */,
 				02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */,
 				02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */,
 				02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */,
