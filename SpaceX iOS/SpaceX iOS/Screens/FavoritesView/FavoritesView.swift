@@ -1,4 +1,12 @@
+//
+//  FavoritesView.swift
+//  SpaceX iOS
+//
+//  Created by Vestel on 13.08.2024.
+//
+
 import SwiftUI
+import LocalAuthentication
 
 struct FavoritesView: View {
     
@@ -6,6 +14,8 @@ struct FavoritesView: View {
     @State private var selectedRocket: Rocket? = nil
     @State private var isDetailPresented = false
     @State private var isTapAnimating = false
+    @State private var isAuthenticated = false
+    @State private var authenticationFailed = false
     
     init(viewModel: RocketListViewModel) {
         self.viewModel = viewModel
@@ -24,32 +34,41 @@ struct FavoritesView: View {
                     .scaledToFill()
                     .frame(width: 400, height: 850)
                     .edgesIgnoringSafeArea(.all)
+                    .blur(radius: authenticationFailed ? 1 : 0)
                 
                 VStack {
-                    ScrollView {
-                        VStack(spacing: 20) {
-                            ForEach($viewModel.favoriteRockets, id: \.id) { $rocket in
-                                RocketListCell(
-                                    rocket: $rocket,
-                                    isTapAnimating: selectedRocket?.id == rocket.id && isTapAnimating,
-                                    viewModel: viewModel
-                                )
-                                .padding(.horizontal, 20)
-                                .onTapGesture {
-                                    selectedRocket = rocket
-                                    withAnimation {
-                                        isTapAnimating = true
-                                    }
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    if isAuthenticated {
+                        ScrollView {
+                            VStack(spacing: 20) {
+                                ForEach($viewModel.favoriteRockets, id: \.id) { $rocket in
+                                    RocketListCell(
+                                        rocket: $rocket,
+                                        isTapAnimating: selectedRocket?.id == rocket.id && isTapAnimating,
+                                        viewModel: viewModel
+                                    )
+                                    .padding(.horizontal, 20)
+                                    .onTapGesture {
+                                        selectedRocket = rocket
                                         withAnimation {
-                                            isTapAnimating = false
-                                            isDetailPresented = true
+                                            isTapAnimating = true
+                                        }
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                            withAnimation {
+                                                isTapAnimating = false
+                                                isDetailPresented = true
+                                            }
                                         }
                                     }
                                 }
                             }
+                            .padding(.top, 20)
                         }
-                        .padding(.top, 20)
+                    }
+                    else {
+                        Text("Authentication required to view favorites.")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .padding(.vertical, 40)
                     }
                 }
                 .padding(.top, 60)
@@ -71,8 +90,33 @@ struct FavoritesView: View {
                 
             }
             .onAppear {
-                viewModel.fetchFavoriteRocketsFromRealm()
+                authenticate()
             }
+        }
+    }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Please authenticate to view your favorites."
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        isAuthenticated = true
+                        authenticationFailed = false
+                        viewModel.fetchFavoriteRocketsFromRealm()
+                    } else {
+                        isAuthenticated = false
+                        authenticationFailed = true
+                    }
+                }
+            }
+        } else {
+            isAuthenticated = false
+            authenticationFailed = true
         }
     }
 }
