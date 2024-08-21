@@ -34,7 +34,7 @@ struct CustomTabButton: View {
     }
 }
 
-struct CustomButton_Previews: PreviewProvider {
+struct CustomTabButton_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabButton(imageName: "FavButton",
                         title: "Favorite",

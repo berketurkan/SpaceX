@@ -45,6 +45,7 @@
 		02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35C2C6BA453006AC26B /* FavoritesView.swift */; };
 		02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */; };
 		02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */; };
+		02DC8AAF2C7618EB00C55CAF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -91,6 +92,7 @@
 		02BCE35C2C6BA453006AC26B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		02BCE35E2C6BA47B006AC26B /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
 		02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				02AEAF4A2C6E29F800803662 /* BackButton.swift */,
 				02AEAF4C2C6E45B300803662 /* DetailRow.swift */,
 				02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */,
+				02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				02B99CE02C72399D000BAEED /* APError.swift in Sources */,
 				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
 				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
+				02DC8AAF2C7618EB00C55CAF /* CustomButton.swift in Sources */,
 				028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */,
 				02B99CE22C7239C0000BAEED /* Alert.swift in Sources */,
 				02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */,
