@@ -26,7 +26,9 @@ struct CustomTextField: View {
             if text.isEmpty {
                 Text(placeholder)
                     .foregroundColor(.white)
-                    .padding(.leading, 60) // Aligns the placeholder with the text field
+                    .padding(.leading, 43)
+                    .font(Font.custom("Muli", size: 20))
+                    .bold()
             }
             
             HStack {
@@ -76,7 +78,7 @@ struct CustomTextField: View {
 }
 
 struct CustomTextField_Previews: PreviewProvider {
-    @State static var text = "abcd"
+    @State static var text = ""
     
     static var previews: some View {
         CustomTextField(

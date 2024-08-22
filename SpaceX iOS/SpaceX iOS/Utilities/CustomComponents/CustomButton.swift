@@ -42,7 +42,7 @@ struct CustomButton: View {
             .frame(width: width, height: height)
             .padding()
             .background(isEnabled ? enabledColor : disabledColor)
-            .cornerRadius(10)
+            .cornerRadius(30)
             .opacity(isEnabled ? 1.0 : 0.6)
         }
     }

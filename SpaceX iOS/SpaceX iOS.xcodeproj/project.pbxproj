@@ -29,6 +29,7 @@
 		0286E0C12C746D7F0049B9EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0286E0C02C746D7F0049B9EE /* RealmSwift */; };
 		0286E0C22C7472AF0049B9EE /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0286E0C02C746D7F0049B9EE /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */; };
+		02A914D72C76639200AC7408 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A914D62C76639200AC7408 /* LoginView.swift */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
@@ -76,6 +77,7 @@
 		028567EA2C733A0500B5D1CE /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		028567EC2C73692D00B5D1CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRocket.swift; sourceTree = "<group>"; };
+		02A914D62C76639200AC7408 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
 		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				028091A02C6B32E8002DBF5F /* RocketListCell.swift */,
 				02AEAF482C6E223000803662 /* RocketDetailView.swift */,
+				02A914D62C76639200AC7408 /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */,
 				0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */,
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
+				02A914D72C76639200AC7408 /* LoginView.swift in Sources */,
 				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,
 				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
 				02B99CE62C724F02000BAEED /* RocketListViewModel.swift in Sources */,
