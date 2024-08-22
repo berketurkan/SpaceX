@@ -45,12 +45,18 @@ struct CustomTextField: View {
                     })
                     .foregroundColor(.white)
                     .padding(.leading, 10)
+                    .autocapitalization(.none)
+                    .keyboardType(.default)
+                    .disableAutocorrection(true)
+                    
                 } else {
                     TextField("", text: $text, onCommit: {
                         onCommit?()
                     })
                     .foregroundColor(.white)
                     .padding(.leading, 10)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
                 }
                 
                 if isSecure {

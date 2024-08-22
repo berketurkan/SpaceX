@@ -94,7 +94,6 @@ final class RocketListViewModel: ObservableObject {
     }
     
     private func removeRocketFromFavorites(_ rocket: Rocket) {
-        // Iterate to find the index and remove the rocket from favoriteRockets
         for i in 0..<favoriteRockets.count {
             if favoriteRockets[i].id == rocket.id {
                 favoriteRockets.remove(at: i)

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @StateObject private var viewModel = LoginViewModel()
+    @State private var isShowingMainView = false
     
     var body: some View {
         NavigationStack {
@@ -26,7 +26,7 @@ struct LoginView: View {
                         .padding(.bottom, 50)
                     
                     CustomTextField(
-                        text: $email,
+                        text: $viewModel.email,
                         placeholder: "E-mail",
                         isSecure: false,
                         imageName: "iconEmail",
@@ -41,7 +41,7 @@ struct LoginView: View {
                     .padding(.bottom, 20)
                     
                     CustomTextField(
-                        text: $password,
+                        text: $viewModel.password,
                         placeholder: "Password",
                         isSecure: true,
                         imageName: "iconPassword",
@@ -54,11 +54,21 @@ struct LoginView: View {
                         }
                     )
                     
+                    if viewModel.hasError {
+                        Text("Your password or e-mail address is wrong.")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.custom("Muli", size: 10))
+                            .foregroundColor(.red)
+                            .padding(.top, 10)
+                            .padding(.leading, 25)
+                        
+                    }
+                    
                     CustomButton(
                         title: "Forgot Password",
                         textColor: .white,
                         width: 120,
-                        height: 20,
+                        height: 0,
                         iconName: "",
                         isEnabled: true,
                         disabledColor: .clear,
@@ -68,7 +78,7 @@ struct LoginView: View {
                         }
                     )
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.top, 10)
+                    .padding(.top, 0)
                     
                     CustomButton(
                         title: "Log in",
@@ -76,11 +86,21 @@ struct LoginView: View {
                         width: 240,
                         height: 30,
                         iconName: "",
-                        isEnabled: !(email.isEmpty || password.isEmpty),
+                        isEnabled: !(viewModel.email.isEmpty || viewModel.password.isEmpty),
                         disabledColor: Color.white.opacity(0.1),
                         enabledColor: Color("lightGreen"),
                         font: .headline,
                         action: {
+                            //                            viewModel.signIn()
+                            //                            if viewModel.isLoggedIn {
+                            //                                isShowingMainView = true
+                            //                            }
+                            Task {
+                                let success = await viewModel.signIn()
+                                if success {
+                                    isShowingMainView = true
+                                }
+                            }
                         }
                     )
                     .padding(.top, 35)
@@ -121,6 +141,12 @@ struct LoginView: View {
                     
                     Spacer()
                 }
+            }
+            .onAppear {
+                viewModel.isLoggedIn = false
+            }
+            .navigationDestination(isPresented: $isShowingMainView) {
+                SpaceXTabView()
             }
         }
     }
