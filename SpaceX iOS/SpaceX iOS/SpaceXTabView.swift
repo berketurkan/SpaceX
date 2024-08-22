@@ -74,6 +74,12 @@ struct SpaceXTabView: View {
         .onAppear {
             if viewModel.rockets.isEmpty {
                 viewModel.getRockets()
+                viewModel.fetchFavoriteRockets()
+                viewModel.syncFavoriteStatus()
+            }
+            else {
+                viewModel.fetchFavoriteRockets()
+                viewModel.syncFavoriteStatus()
             }
         }
     }

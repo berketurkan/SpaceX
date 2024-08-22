@@ -107,7 +107,8 @@ struct FavoritesView: View {
                     if success {
                         isAuthenticated = true
                         authenticationFailed = false
-                        viewModel.fetchFavoriteRocketsFromRealm()
+                        viewModel.fetchFavoriteRockets()
+                        viewModel.syncFavoriteStatus()
                     } else {
                         isAuthenticated = false
                         authenticationFailed = true

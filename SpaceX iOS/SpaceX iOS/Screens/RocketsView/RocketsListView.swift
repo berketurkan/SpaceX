@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RocketsListView: View {
-//    @StateObject var viewModel = RocketListViewModel()
+    //    @StateObject var viewModel = RocketListViewModel()
     @ObservedObject var viewModel: RocketListViewModel
     @State private var selectedRocket: Rocket? = nil
     @State private var isTapAnimating = false
@@ -78,11 +78,11 @@ struct RocketsListView: View {
                 }
                 
             }
-//            .onAppear {
-//                if viewModel.rockets.isEmpty {
-//                    viewModel.getRockets()
-//                }
-//            }
+            .onAppear {
+                if viewModel.rockets.isEmpty {
+                    viewModel.fetchRocketsAndFavorites()
+                }
+            }
         }
     }
 }

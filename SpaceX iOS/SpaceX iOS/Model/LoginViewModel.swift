@@ -66,10 +66,6 @@ class LoginViewModel: ObservableObject {
         }
     }
     
-    func fetchFavoriteRockets() {
-    }
-    
-    
     deinit {
         if let handle = authStateListenerHandle {
             Auth.auth().removeStateDidChangeListener(handle)

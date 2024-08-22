@@ -8,6 +8,7 @@
 import SwiftUI
 import RealmSwift
 import FirebaseFirestore
+import FirebaseAuth
 
 final class RocketListViewModel: ObservableObject {
     
@@ -15,9 +16,88 @@ final class RocketListViewModel: ObservableObject {
     @Published var favoriteRockets: [Rocket] = []
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
+    private var userID: String?
     
     private let realm = try! Realm()
     private let database = Firestore.firestore()
+    
+    init() {
+        fetchCurrentUserID()
+    }
+    
+    func fetchCurrentUserID() {
+        if let user = Auth.auth().currentUser {
+            self.userID = user.uid
+        }
+    }
+    
+    func fetchRocketsAndFavorites() {
+        guard let userID = userID else { return }
+        
+        let dispatchGroup = DispatchGroup()
+        
+        // Fetch rockets
+        dispatchGroup.enter()
+        NetworkManager.shared.getRockets { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let rocketsData):
+                    self.rockets = rocketsData
+                case .failure(let error):
+                    print("[ERROR] Failed to fetch rockets data: \(error)")
+                    switch error {
+                    case .invalidResponse:
+                        self.alertItem = AlertContext.invalidResponse
+                        print("[ERROR] Invalid response from server")
+                        
+                    case .invalidURL:
+                        self.alertItem = AlertContext.invalidURL
+                        print("[ERROR] Invalid URL")
+                        
+                    case .invalidData:
+                        self.alertItem = AlertContext.invalidData
+                        print("[ERROR] Invalid data received")
+                        
+                    case .unableToComplete:
+                        self.alertItem = AlertContext.unableToComplete
+                        print("[ERROR] Unable to complete request")
+                    }
+                }
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.enter()
+        database.collection("users").document(userID).collection("favRockets").getDocuments { snapshot, error in
+            if let error = error {
+                print("[ERROR] Error fetching favorite rockets from Firestore: \(error.localizedDescription)")
+            } else {
+                var favorites: [Rocket] = []
+                if let documents = snapshot?.documents {
+                    for document in documents {
+                        let data = document.data()
+                        if let rocketID = data["id"] as? String {
+                            for rocket in self.rockets {
+                                if rocket.id == rocketID {
+                                    favorites.append(rocket)
+                                    break
+                                }
+                            }
+                        }
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.favoriteRockets = favorites
+                }
+            }
+            dispatchGroup.leave()
+        }
+        
+        // Sync favorite status after both fetches complete
+        dispatchGroup.notify(queue: .main) {
+            self.syncFavoriteStatus()
+        }
+    }
     
     func toggleFavorite(for rocket: Rocket) {
         for i in 0..<rockets.count {
@@ -25,13 +105,45 @@ final class RocketListViewModel: ObservableObject {
                 rockets[i].toggleFavorite()
                 if rockets[i].isFavorite {
                     saveFavoriteRealm(for: rockets[i])
-                    saveFavoriteRocketToFirestore(rockets[i])
+                    saveFavoriteRocketToFirestore(rocket, userID: userID ?? "")
                 } else {
                     removeFavoriteRealm(for: rockets[i])
-                    removeFavoriteRocketFromFirestore(rockets[i])
+                    removeFavoriteRocketFromFirestore(rocket, userID: userID ?? "")
                     removeRocketFromFavorites(rocket)
                 }
                 break
+            }
+        }
+    }
+    
+    func fetchFavoriteRockets() {
+        guard let userID = userID else { return }
+        
+        database.collection("users").document(userID).collection("favRockets").getDocuments { snapshot, error in
+            if let error = error {
+                print("Error fetching favorite rockets from Firestore: \(error)")
+                return
+            }
+            
+            var favorites: [Rocket] = []
+            
+            if let documents = snapshot?.documents {
+                for document in documents {
+                    let data = document.data()
+                    
+                    if let rocketID = data["id"] as? String {
+                        for rocket in self.rockets {
+                            if rocket.id == rocketID {
+                                favorites.append(rocket)
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.favoriteRockets = favorites
             }
         }
     }
@@ -53,13 +165,27 @@ final class RocketListViewModel: ObservableObject {
         }
     }
     
-    private func saveFavoriteRocketToFirestore(_ rocket: Rocket) {
+    func syncFavoriteStatus() {
+        
+        fetchFavoriteRockets()
+        
+        for favorite in favoriteRockets {
+            for i in 0..<rockets.count {
+                if rockets[i].id == favorite.id {
+                    rockets[i].isFavorite = true
+                    break
+                }
+            }
+        }
+    }
+    
+    private func saveFavoriteRocketToFirestore(_ rocket: Rocket, userID: String) {
         let favoriteData: [String: Any] = [
             "id": rocket.id,
             "name": rocket.name
         ]
         
-        database.collection("favRockets").document(rocket.id).setData(favoriteData) { error in
+        database.collection("users").document(userID).collection("favRockets").document(rocket.id).setData(favoriteData) { error in
             if let error = error {
                 print("Error saving rocket to Firestore: \(error)")
             } else {
@@ -68,8 +194,8 @@ final class RocketListViewModel: ObservableObject {
         }
     }
     
-    private func removeFavoriteRocketFromFirestore(_ rocket: Rocket) {
-        database.collection("favRockets").document(rocket.id).delete { error in
+    private func removeFavoriteRocketFromFirestore(_ rocket: Rocket, userID: String) {
+        database.collection("users").document(userID).collection("favRockets").document(rocket.id).delete { error in
             if let error = error {
                 print("Error removing rocket from Firestore: \(error)")
             } else {
@@ -128,6 +254,7 @@ final class RocketListViewModel: ObservableObject {
                 case .success(let rocketsData):
                     print("[DEBUG] Success: Rockets data fetched successfully")
                     self.rockets = rocketsData
+                    //self.syncFavoriteStatus()
                     print("[DEBUG] Total rockets parsed: \(self.rockets.count)")
                     self.rockets.forEach { rocket in
                         //print("[DEBUG] Rocket ID: \(rocket.id)")
