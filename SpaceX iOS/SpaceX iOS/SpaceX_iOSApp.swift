@@ -22,7 +22,9 @@ struct SpaceX_iOSApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            NavigationStack {
+                SplashView()
+            }
         }
     }
 }

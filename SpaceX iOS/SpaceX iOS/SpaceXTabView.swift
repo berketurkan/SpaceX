@@ -11,11 +11,13 @@ struct SpaceXTabView: View {
     
     @StateObject var viewModel = RocketListViewModel()
     @State private var selectedTab = 0
+    @Binding var isLoggedIn: Bool
     
     var body: some View {
         ZStack {
             if selectedTab == 0 {
-                RocketsListView( viewModel: viewModel)
+                RocketsListView(viewModel: viewModel,
+                                isLoggedIn: $isLoggedIn)
             } else if selectedTab == 1 {
                 FavoritesView(viewModel: viewModel)
             } else if selectedTab == 2 {
@@ -85,8 +87,8 @@ struct SpaceXTabView: View {
     }
 }
 
-struct SpaceXTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        SpaceXTabView()
-    }
-}
+//struct SpaceXTabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SpaceXTabView()
+//    }
+//}

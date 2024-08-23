@@ -110,9 +110,9 @@ class LoginViewModel: ObservableObject {
     }
     
     func signIn() async -> Bool {
-        hasError = false
         do {
             _ = try await Auth.auth().signIn(withEmail: email, password: password)
+            hasError = false
             isLoggedIn = true
             return true
         } catch {

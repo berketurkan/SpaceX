@@ -11,9 +11,12 @@ struct LoginView: View {
     
     @StateObject private var viewModel = LoginViewModel()
     @State private var isShowingMainView = false
+    @State private var isLoggedIn = false
     
     var body: some View {
-        NavigationStack {
+        if isLoggedIn {
+                   SpaceXTabView(isLoggedIn: $isLoggedIn) 
+        } else {
             ZStack {
                 Image("loginBackground")
                     .resizable()
@@ -97,6 +100,7 @@ struct LoginView: View {
                                 let success = await viewModel.signIn()
                                 if success {
                                     isShowingMainView = true
+                                    isLoggedIn = true
                                 }
                             }
                         }
@@ -116,7 +120,8 @@ struct LoginView: View {
                         action: {
                             viewModel.signInWithGoogle { success in
                                 if success {
-                                    isShowingMainView = true 
+                                    isShowingMainView = true
+                                    isLoggedIn = true
                                 } else {
                                    
                                 }
@@ -161,10 +166,12 @@ struct LoginView: View {
             .onAppear {
                 viewModel.isLoggedIn = false
             }
-            .navigationDestination(isPresented: $isShowingMainView) {
-                SpaceXTabView()
-            }
+            .navigationBarHidden(true)
         }
+        
+//        .navigationDestination(isPresented: $isShowingMainView) {
+//            SpaceXTabView()
+//        }
     }
 }
 

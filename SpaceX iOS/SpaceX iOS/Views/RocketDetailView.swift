@@ -97,7 +97,7 @@ struct RocketDetailView: View {
                     }
                 }
                 
-                Spacer(minLength: 150)
+                Spacer(minLength: 50)
                 
             }
             .navigationTitle(rocket.name)
