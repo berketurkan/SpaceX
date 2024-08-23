@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		021CC3F92C786528009FA9D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 021CC3F82C786528009FA9D1 /* GoogleService-Info.plist */; };
 		021CC3FB2C786B2D009FA9D1 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CC3FA2C786B2D009FA9D1 /* UIApplication+Extension.swift */; };
+		021CC3FF2C78CA9F009FA9D1 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */; };
 		02250B4A2C6C82FB0094700E /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02250B492C6C82FB0094700E /* Color++.swift */; };
 		0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280919E2C6B32D3002DBF5F /* Rocket.swift */; };
 		028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028091A02C6B32E8002DBF5F /* RocketListCell.swift */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		021CC3F82C786528009FA9D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		021CC3FA2C786B2D009FA9D1 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		02250B492C6C82FB0094700E /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
 		0280919E2C6B32D3002DBF5F /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		028091A02C6B32E8002DBF5F /* RocketListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketListCell.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				028091A02C6B32E8002DBF5F /* RocketListCell.swift */,
 				02AEAF482C6E223000803662 /* RocketDetailView.swift */,
 				02A914D62C76639200AC7408 /* LoginView.swift */,
+				021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				028091A62C6B37E2002DBF5F /* SpaceXTabView.swift in Sources */,
 				028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */,
 				028091AA2C6B403F002DBF5F /* SplashView.swift in Sources */,
+				021CC3FF2C78CA9F009FA9D1 /* ResetPasswordView.swift in Sources */,
 				0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */,
 				0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */,
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,

@@ -16,6 +16,10 @@ struct CustomTextField: View {
     var backgroundColor: Color = Color.white
     var iconColorWhenEmpty: Color = .white
     var iconColorWhenFilled: Color = Color("lightGreen")
+    var placeHolderTextColor: Color = .white
+    var fontSize: CGFloat = 20
+    var height: CGFloat = 25
+    var width: CGFloat = 300
     var onCommit: (() -> Void)?
     
     @State private var isPasswordVisible = false
@@ -25,9 +29,9 @@ struct CustomTextField: View {
         ZStack(alignment: .leading) {
             if text.isEmpty {
                 Text(placeholder)
-                    .foregroundColor(.white)
+                    .foregroundColor(placeHolderTextColor)
                     .padding(.leading, 43)
-                    .font(Font.custom("Muli", size: 20))
+                    .font(Font.custom("Muli", size: fontSize))
                     .bold()
             }
             
@@ -73,7 +77,7 @@ struct CustomTextField: View {
                 }
             }
         }
-        .frame(height: 25)
+        .frame(width: width, height: height)
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 10)
