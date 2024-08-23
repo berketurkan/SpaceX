@@ -12,7 +12,8 @@ struct CustomButton: View {
     var textColor: Color = .white
     var width: CGFloat = 50
     var height: CGFloat = 50
-    var iconName: String = ""
+    var systemIconName: String? = nil
+    var bundleImageName: String? = nil
     var isEnabled: Bool = true
     var disabledColor: Color = .gray
     var enabledColor: Color = Color("lightGreen")
@@ -26,18 +27,24 @@ struct CustomButton: View {
             }
         }) {
             HStack {
-                if !iconName.isEmpty {
-                    Image(systemName: iconName)
+                if let systemIconName = systemIconName {
+                    Image(systemName: systemIconName)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 25, height: 25)
                         .foregroundColor(.white)
                 }
+                else if let bundleImageName = bundleImageName {
+                    Image(bundleImageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                }
                 
                 Text(title)
                     .font(font)
                     .foregroundColor(textColor)
-                    .padding(.leading, iconName.isEmpty ? 0 : 3)
+                    .padding(.leading, (systemIconName != nil || bundleImageName != nil) ? 3 : 0)
             }
             .frame(width: width, height: height)
             .padding()
@@ -54,7 +61,7 @@ struct CustomButton_Previews: PreviewProvider {
             title: "Log in",
             width: 200,
             height: 40,
-            iconName: "apple.logo",
+            systemIconName: "apple.logo",
             isEnabled: true,
             disabledColor: Color.gray,
             enabledColor: Color.green,

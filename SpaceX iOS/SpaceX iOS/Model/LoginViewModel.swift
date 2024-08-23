@@ -7,6 +7,10 @@
 
 import Foundation
 import FirebaseAuth
+import GoogleSignIn
+import FirebaseCore
+import UIKit
+import FirebaseFirestore
 
 struct User {
     let uid: String
@@ -36,6 +40,71 @@ class LoginViewModel: ObservableObject {
             } else {
                 self?._currentUser = nil
                 self?.isLoggedIn = false
+            }
+        }
+    }
+    
+    
+    func signInWithGoogle(completion: @escaping (Bool) -> Void) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: UIApplication.shared.rootViewController!) { [weak self] result, error in
+            guard error == nil else {
+                self?.hasError = true
+                self?.errorMessage = error?.localizedDescription ?? "Unknown error"
+                completion(false)
+                return
+            }
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString else {
+                self?.hasError = true
+                self?.errorMessage = "Missing user or token"
+                completion(false)
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential) { authResult, error in
+                if let error = error {
+                    print("Firebase sign-in error: \(error.localizedDescription)")
+                    self?.hasError = true
+                    self?.errorMessage = error.localizedDescription
+                    completion(false)
+                    return
+                }
+                
+                self?.createUserDocumentIfNeeded()
+                self?.isLoggedIn = true
+                completion(true)
+            }
+        }
+    }
+    
+    func createUserDocumentIfNeeded() {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        let database = Firestore.firestore()
+        let userDocument = database.collection("users").document(userID)
+        
+        userDocument.getDocument { document, error in
+            if let document = document, document.exists {
+                print("User document already exists.")
+            } else {
+                let userData: [String: Any] = [
+                    "email": Auth.auth().currentUser?.email ?? "",
+                ]
+                
+                userDocument.setData(userData) { error in
+                    if let error = error {
+                        print("Error creating user document: \(error.localizedDescription)")
+                    } else {
+                        print("User document successfully created in Firestore.")
+                    }
+                }
             }
         }
     }

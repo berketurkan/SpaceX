@@ -69,7 +69,6 @@ struct LoginView: View {
                         textColor: .white,
                         width: 120,
                         height: 0,
-                        iconName: "",
                         isEnabled: true,
                         disabledColor: .clear,
                         enabledColor: .clear,
@@ -85,7 +84,6 @@ struct LoginView: View {
                         textColor: .white,
                         width: 240,
                         height: 30,
-                        iconName: "",
                         isEnabled: !(viewModel.email.isEmpty || viewModel.password.isEmpty),
                         disabledColor: Color.white.opacity(0.1),
                         enabledColor: Color("lightGreen"),
@@ -103,17 +101,36 @@ struct LoginView: View {
                             }
                         }
                     )
-                    .padding(.top, 35)
+                    .padding(.top, 10)
                     
-                    Text("or")
-                        .foregroundColor(.white)
+                    CustomButton(
+                        title: "Sign In with Google",
+                        textColor: .black,
+                        width: 240,
+                        height: 30,
+                        bundleImageName: "GoogleIcon",
+                        isEnabled: true,
+                        disabledColor: Color.white,
+                        enabledColor: Color.white,
+                        font: .headline,
+                        action: {
+                            viewModel.signInWithGoogle { success in
+                                if success {
+                                    isShowingMainView = true 
+                                } else {
+                                   
+                                }
+                            }
+                        }
+                    )
+                    .padding(.top, 10)
                     
                     CustomButton(
                         title: "Sign in with Apple",
                         textColor: .white,
                         width: 240,
                         height: 30,
-                        iconName: "apple.logo",
+                        systemIconName: "apple.logo",
                         isEnabled: true,
                         disabledColor: Color.white.opacity(0.1),
                         enabledColor: Color.white.opacity(0.1),
@@ -128,7 +145,6 @@ struct LoginView: View {
                         textColor: .white,
                         width: 48,
                         height: 17,
-                        iconName: "",
                         isEnabled: true,
                         disabledColor: .clear,
                         enabledColor: .clear,
