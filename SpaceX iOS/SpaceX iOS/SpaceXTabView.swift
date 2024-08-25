@@ -87,8 +87,8 @@ struct SpaceXTabView: View {
     }
 }
 
-//struct SpaceXTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SpaceXTabView()
-//    }
-//}
+struct SpaceXTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        SpaceXTabView(isLoggedIn: .constant(true))
+    }
+}

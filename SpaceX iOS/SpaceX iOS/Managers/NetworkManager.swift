@@ -13,6 +13,7 @@ final class NetworkManager {
     
     static let baseURL = "https://api.spacexdata.com/v4/"
     private let rocketsURL = baseURL + "rockets"
+    private let upcomingLaunchesURL = "https://api.spacexdata.com/v5/launches/upcoming"
     
     private init() {}
     

@@ -11,6 +11,9 @@
 		021CC3FB2C786B2D009FA9D1 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CC3FA2C786B2D009FA9D1 /* UIApplication+Extension.swift */; };
 		021CC3FF2C78CA9F009FA9D1 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */; };
 		02250B4A2C6C82FB0094700E /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02250B492C6C82FB0094700E /* Color++.swift */; };
+		025854042C7B898B0015AB1A /* UpcomingLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025854032C7B898B0015AB1A /* UpcomingLaunch.swift */; };
+		025854062C7B8B060015AB1A /* LaunchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025854052C7B8B060015AB1A /* LaunchListCell.swift */; };
+		025854082C7B99560015AB1A /* LaunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025854072C7B99560015AB1A /* LaunchDetailView.swift */; };
 		0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280919E2C6B32D3002DBF5F /* Rocket.swift */; };
 		028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028091A02C6B32E8002DBF5F /* RocketListCell.swift */; };
 		028091A62C6B37E2002DBF5F /* SpaceXTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */; };
@@ -74,6 +77,9 @@
 		021CC3FA2C786B2D009FA9D1 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		02250B492C6C82FB0094700E /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
+		025854032C7B898B0015AB1A /* UpcomingLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingLaunch.swift; sourceTree = "<group>"; };
+		025854052C7B8B060015AB1A /* LaunchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListCell.swift; sourceTree = "<group>"; };
+		025854072C7B99560015AB1A /* LaunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailView.swift; sourceTree = "<group>"; };
 		0280919E2C6B32D3002DBF5F /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
 		028091A02C6B32E8002DBF5F /* RocketListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketListCell.swift; sourceTree = "<group>"; };
 		028091A52C6B37E2002DBF5F /* SpaceXTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXTabView.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 				02B99CE52C724F02000BAEED /* RocketListViewModel.swift */,
 				0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */,
 				028B3A912C770F2900655BCA /* LoginViewModel.swift */,
+				025854032C7B898B0015AB1A /* UpcomingLaunch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +165,8 @@
 				02AEAF482C6E223000803662 /* RocketDetailView.swift */,
 				02A914D62C76639200AC7408 /* LoginView.swift */,
 				021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */,
+				025854052C7B8B060015AB1A /* LaunchListCell.swift */,
+				025854072C7B99560015AB1A /* LaunchDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +438,7 @@
 			files = (
 				028091A62C6B37E2002DBF5F /* SpaceXTabView.swift in Sources */,
 				028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */,
+				025854062C7B8B060015AB1A /* LaunchListCell.swift in Sources */,
 				028091AA2C6B403F002DBF5F /* SplashView.swift in Sources */,
 				021CC3FF2C78CA9F009FA9D1 /* ResetPasswordView.swift in Sources */,
 				0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */,
@@ -439,6 +449,7 @@
 				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
 				02B99CE62C724F02000BAEED /* RocketListViewModel.swift in Sources */,
 				02B99CDC2C7237F0000BAEED /* NetworkManager.swift in Sources */,
+				025854042C7B898B0015AB1A /* UpcomingLaunch.swift in Sources */,
 				02B99CE92C729681000BAEED /* RemoteImage.swift in Sources */,
 				021CC3FB2C786B2D009FA9D1 /* UIApplication+Extension.swift in Sources */,
 				028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */,
@@ -449,6 +460,7 @@
 				02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */,
 				02B99CE02C72399D000BAEED /* APError.swift in Sources */,
 				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
+				025854082C7B99560015AB1A /* LaunchDetailView.swift in Sources */,
 				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
 				02DC8AAF2C7618EB00C55CAF /* CustomButton.swift in Sources */,
 				028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */,
