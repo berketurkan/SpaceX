@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct UpcomingView: View {
-    // Using mock data launches for the demonstration
     let mockLaunches = Launch.mockDataLaunches
-        
+    @StateObject private var viewModel = LaunchViewModel()
+    @State private var selectedLaunch: Launch? = nil
+    @State private var isDetailPresented = false
     
     var body: some View {
         ZStack {
-            // Background image
             Image("SpaceXBackGround")
                 .resizable()
                 .scaledToFill()
@@ -24,10 +24,14 @@ struct UpcomingView: View {
             VStack {
                 ScrollView {
                     VStack(spacing: 40) {
-                        ForEach(mockLaunches.indices, id: \.self) { index in
+                        ForEach(viewModel.launches.indices, id: \.self) { index in
                             LaunchListCell(
-                                launch: mockLaunches[index],
-                                index: index
+                                launch: viewModel.launches[index],
+                                index: index,
+                                onExploreTapped: {
+                                    selectedLaunch = viewModel.launches[index]
+                                    isDetailPresented = true
+                                }
                             )
                             .padding(.horizontal, 20)
                         }
@@ -40,6 +44,20 @@ struct UpcomingView: View {
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Upcoming Launchers")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            viewModel.fetchUpcomingLaunches()
+        }
+        .navigationDestination(isPresented: $isDetailPresented) {
+            if let selectedLaunch = selectedLaunch {
+                if let launchIndex = viewModel.launches.firstIndex(where: { launch in launch.id == selectedLaunch.id }) {
+                    LaunchDetailView(
+                        launch: selectedLaunch,
+                        backgroundImageName: "upcoming\(launchIndex % 3 + 1)",
+                        index: launchIndex
+                    )
+                }
+            }
+        }
     }
 }
 

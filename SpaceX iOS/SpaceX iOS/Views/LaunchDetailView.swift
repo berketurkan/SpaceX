@@ -11,14 +11,14 @@ struct LaunchDetailView: View {
     let launch: Launch
     let backgroundImageName: String
     let index: Int
+    @Environment(\.presentationMode) private var presentationMode
     
     private var isLeftAligned: Bool {
-        return index % 2 == 1
+        return index % 3 == 1
     }
     
     var body: some View {
         ZStack {
-            // Background image
             Image("SpaceXBackGround")
                 .resizable()
                 .scaledToFill()
@@ -88,6 +88,19 @@ struct LaunchDetailView: View {
             .padding(.horizontal, 20)
             
             Spacer()
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .frame(width: 14, height: 23)
+                        .foregroundColor(.white)
+                }
+            }
         }
     }
     

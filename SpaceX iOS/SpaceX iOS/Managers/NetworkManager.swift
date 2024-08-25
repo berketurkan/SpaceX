@@ -93,4 +93,40 @@ final class NetworkManager {
         task.resume()
         
     }
+    
+    func getUpcomingLaunches(completed: @escaping (Result<[Launch], APError>) -> Void) {
+        guard let url = URL(string: upcomingLaunchesURL) else {
+            completed(.failure(.invalidURL))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            if let _ = error  {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let decodedResponse = try decoder.decode([Launch].self, from: data)
+                completed(.success(decodedResponse))
+            } catch {
+                print("Error decoding launch data: \(error.localizedDescription)")
+                completed(.failure(.invalidData))
+            }
+        }
+        
+        task.resume()
+    }
+    
 }

@@ -10,11 +10,12 @@ import SwiftUI
 struct LaunchListCell: View {
     let launch: Launch
     let index: Int
+    let onExploreTapped: () -> Void
     
     private let imageNames = ["upcoming1", "upcoming2", "upcoming3"]
     
     private var isLeftAligned: Bool {
-        return index % 2 == 1
+        return index % 3 == 1
     }
     
     var body: some View {
@@ -47,7 +48,7 @@ struct LaunchListCell: View {
                     enabledColor: .gray.opacity(0.9),
                     font: Font.system(size: 14, weight: .semibold),
                     action: {
-                        
+                        onExploreTapped()
                     }
                 )
                 .padding(isLeftAligned ? .leading : .trailing, 20)
@@ -66,7 +67,9 @@ struct LaunchListCell: View {
 struct LaunchListCell_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 40) {
-            LaunchListCell(launch: Launch.mockDataLaunch, index: 0)
+            LaunchListCell(launch: Launch.mockDataLaunch, index: 0,
+                           onExploreTapped: {}
+            )
         }
     }
 }
