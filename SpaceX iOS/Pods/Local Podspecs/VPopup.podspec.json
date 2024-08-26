@@ -1,0 +1,26 @@
+{
+  "name": "VPopup",
+  "version": "0.0.1",
+  "summary": "A customizable popup view for iOS applications.",
+  "description": "VPopup is a customizable popup view for iOS that can be used to display alerts, notifications, and other messages.",
+  "homepage": "http://EXAMPLE/VPopup",
+  "license": "MIT",
+  "authors": {
+    "berketurkan": "berke.turkan@sabanciuniv.edu"
+  },
+  "source": {
+    "path": "/Users/vestel/Desktop/V-Popup-iOS-master"
+  },
+  "source_files": [
+    "Classes",
+    "Classes/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "visionos": null,
+    "watchos": null
+  }
+}

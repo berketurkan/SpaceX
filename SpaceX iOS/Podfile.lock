@@ -1,0 +1,16 @@
+PODS:
+  - VPopup (0.0.1)
+
+DEPENDENCIES:
+  - VPopup (from `/Users/vestel/Desktop/V-Popup-iOS-master`)
+
+EXTERNAL SOURCES:
+  VPopup:
+    :path: "/Users/vestel/Desktop/V-Popup-iOS-master"
+
+SPEC CHECKSUMS:
+  VPopup: 4ce54f4048b5346698f34e1af981bec2d3c77398
+
+PODFILE CHECKSUM: d82fc6ead129cfa9427838528a167b6131b99e24
+
+COCOAPODS: 1.15.2
