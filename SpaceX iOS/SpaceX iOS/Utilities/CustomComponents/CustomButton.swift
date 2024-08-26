@@ -17,7 +17,7 @@ struct CustomButton: View {
     var isEnabled: Bool = true
     var disabledColor: Color = .gray
     var enabledColor: Color = Color("lightGreen")
-    var font: Font = .headline // Default font
+    var font: Font = .headline 
     var action: () -> Void
     
     var body: some View {

@@ -98,7 +98,7 @@ struct ForgotPasswordView: View {
                 CustomButton(
                     title: "Cancel",
                     textColor: .white.opacity(0.5),
-                    width: 60,
+                    width: 40,
                     height: 20,
                     isEnabled: true,
                     disabledColor: .clear,

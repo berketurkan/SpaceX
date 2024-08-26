@@ -11,7 +11,8 @@ struct ResetPasswordView: View {
     
     @State private var currentPassword: String = ""
     @State private var newPassword: String = ""
-    
+    @Environment(\.presentationMode) private var presentationMode
+
     private var passwordValidator: PasswordValidator {
         PasswordValidator(password: newPassword)
     }
@@ -123,6 +124,34 @@ struct ResetPasswordView: View {
             }
             .padding(.horizontal, 20)
             .padding(.top, 100)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .resizable()
+                            .frame(width: 14, height: 23)
+                            .foregroundColor(.white)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    CustomButton(
+                        title: "Cancel",
+                        textColor: .white.opacity(0.5),
+                        width: 40,
+                        height: 20,
+                        isEnabled: true,
+                        disabledColor: .clear,
+                        enabledColor: .clear,
+                        font: .headline,
+                        action: {
+                            
+                        }
+                    )
+                }
+            }
         }
     }
     

@@ -38,6 +38,14 @@
 		028B3A922C770F2900655BCA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3A912C770F2900655BCA /* LoginViewModel.swift */; };
 		02A914D72C76639200AC7408 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A914D62C76639200AC7408 /* LoginView.swift */; };
 		02A9F5B22C7C5BBB00C13918 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */; };
+		02A9F5B42C7C6D5B00C13918 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B32C7C6D5B00C13918 /* SignUpMainView.swift */; };
+		02A9F5B62C7C742900C13918 /* PasswordConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B52C7C742900C13918 /* PasswordConditionsView.swift */; };
+		02A9F5B92C7C938100C13918 /* PrivacyandConditonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B82C7C938100C13918 /* PrivacyandConditonsView.swift */; };
+		02A9F5BB2C7C961900C13918 /* ConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5BA2C7C961900C13918 /* ConditionCell.swift */; };
+		02A9F5BD2C7C9F9B00C13918 /* AcceptRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5BC2C7C9F9B00C13918 /* AcceptRow.swift */; };
+		02A9F5BF2C7CAFCA00C13918 /* ActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5BE2C7CAFCA00C13918 /* ActivationView.swift */; };
+		02A9F5C12C7CB63B00C13918 /* AccountCreatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5C02C7CB63B00C13918 /* AccountCreatedView.swift */; };
+		02A9F5C32C7CB79400C13918 /* ActivationFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5C22C7CB79400C13918 /* ActivationFailedView.swift */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
@@ -96,6 +104,14 @@
 		028B3A912C770F2900655BCA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		02A914D62C76639200AC7408 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		02A9F5B32C7C6D5B00C13918 /* SignUpMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainView.swift; sourceTree = "<group>"; };
+		02A9F5B52C7C742900C13918 /* PasswordConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConditionsView.swift; sourceTree = "<group>"; };
+		02A9F5B82C7C938100C13918 /* PrivacyandConditonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyandConditonsView.swift; sourceTree = "<group>"; };
+		02A9F5BA2C7C961900C13918 /* ConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionCell.swift; sourceTree = "<group>"; };
+		02A9F5BC2C7C9F9B00C13918 /* AcceptRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptRow.swift; sourceTree = "<group>"; };
+		02A9F5BE2C7CAFCA00C13918 /* ActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationView.swift; sourceTree = "<group>"; };
+		02A9F5C02C7CB63B00C13918 /* AccountCreatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreatedView.swift; sourceTree = "<group>"; };
+		02A9F5C22C7CB79400C13918 /* ActivationFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationFailedView.swift; sourceTree = "<group>"; };
 		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
 		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
@@ -173,6 +189,8 @@
 				025854052C7B8B060015AB1A /* LaunchListCell.swift */,
 				025854072C7B99560015AB1A /* LaunchDetailView.swift */,
 				02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */,
+				02A9F5BA2C7C961900C13918 /* ConditionCell.swift */,
+				02A9F5BC2C7C9F9B00C13918 /* AcceptRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,6 +198,7 @@
 		0280919C2C6B3266002DBF5F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				02A9F5B72C7C934500C13918 /* SignUp */,
 				028091A32C6B3315002DBF5F /* FavoritesView */,
 				028091A22C6B330B002DBF5F /* RocketsView */,
 				028091A42C6B3321002DBF5F /* Upcoming View */,
@@ -274,6 +293,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		02A9F5B72C7C934500C13918 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				02A9F5B32C7C6D5B00C13918 /* SignUpMainView.swift */,
+				02A9F5B82C7C938100C13918 /* PrivacyandConditonsView.swift */,
+				02A9F5BE2C7CAFCA00C13918 /* ActivationView.swift */,
+				02A9F5C02C7CB63B00C13918 /* AccountCreatedView.swift */,
+				02A9F5C22C7CB79400C13918 /* ActivationFailedView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		02AEAF422C6DDA8C00803662 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +349,7 @@
 				02AEAF4C2C6E45B300803662 /* DetailRow.swift */,
 				02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */,
 				02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */,
+				02A9F5B52C7C742900C13918 /* PasswordConditionsView.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -443,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				028091A62C6B37E2002DBF5F /* SpaceXTabView.swift in Sources */,
+				02A9F5B62C7C742900C13918 /* PasswordConditionsView.swift in Sources */,
 				028439AA2C6A4AE600316DB3 /* SpaceX_iOSApp.swift in Sources */,
 				025854062C7B8B060015AB1A /* LaunchListCell.swift in Sources */,
 				028091AA2C6B403F002DBF5F /* SplashView.swift in Sources */,
@@ -451,6 +484,8 @@
 				0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */,
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
 				02A914D72C76639200AC7408 /* LoginView.swift in Sources */,
+				02A9F5BF2C7CAFCA00C13918 /* ActivationView.swift in Sources */,
+				02A9F5BD2C7C9F9B00C13918 /* AcceptRow.swift in Sources */,
 				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,
 				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
 				02B99CE62C724F02000BAEED /* RocketListViewModel.swift in Sources */,
@@ -461,19 +496,24 @@
 				028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */,
 				028B3A922C770F2900655BCA /* LoginViewModel.swift in Sources */,
 				02A9F5B22C7C5BBB00C13918 /* ForgotPasswordView.swift in Sources */,
+				02A9F5B42C7C6D5B00C13918 /* SignUpMainView.swift in Sources */,
 				02DC8AB12C762BD400C55CAF /* Validation.swift in Sources */,
 				02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */,
 				02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */,
 				0258540A2C7BBA8A0015AB1A /* LaunchViewModel.swift in Sources */,
+				02A9F5BB2C7C961900C13918 /* ConditionCell.swift in Sources */,
 				02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */,
 				02B99CE02C72399D000BAEED /* APError.swift in Sources */,
+				02A9F5C12C7CB63B00C13918 /* AccountCreatedView.swift in Sources */,
 				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
 				025854082C7B99560015AB1A /* LaunchDetailView.swift in Sources */,
 				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
+				02A9F5C32C7CB79400C13918 /* ActivationFailedView.swift in Sources */,
 				02DC8AAF2C7618EB00C55CAF /* CustomButton.swift in Sources */,
 				028091A12C6B32E8002DBF5F /* RocketListCell.swift in Sources */,
 				02B99CE22C7239C0000BAEED /* Alert.swift in Sources */,
 				02BCE35F2C6BA47B006AC26B /* UpcomingView.swift in Sources */,
+				02A9F5B92C7C938100C13918 /* PrivacyandConditonsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
