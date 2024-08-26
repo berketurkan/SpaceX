@@ -15,7 +15,7 @@ struct LoginView: View {
     
     var body: some View {
         if isLoggedIn {
-                   SpaceXTabView(isLoggedIn: $isLoggedIn) 
+            SpaceXTabView(isLoggedIn: $isLoggedIn)
         } else {
             ZStack {
                 Image("loginBackground")
@@ -92,10 +92,7 @@ struct LoginView: View {
                         enabledColor: Color("lightGreen"),
                         font: .headline,
                         action: {
-                            //                            viewModel.signIn()
-                            //                            if viewModel.isLoggedIn {
-                            //                                isShowingMainView = true
-                            //                            }
+                            
                             Task {
                                 let success = await viewModel.signIn()
                                 if success {
@@ -123,7 +120,7 @@ struct LoginView: View {
                                     isShowingMainView = true
                                     isLoggedIn = true
                                 } else {
-                                   
+                                    
                                 }
                             }
                         }
@@ -169,9 +166,9 @@ struct LoginView: View {
             .navigationBarHidden(true)
         }
         
-//        .navigationDestination(isPresented: $isShowingMainView) {
-//            SpaceXTabView()
-//        }
+        //        .navigationDestination(isPresented: $isShowingMainView) {
+        //            SpaceXTabView()
+        //        }
     }
 }
 

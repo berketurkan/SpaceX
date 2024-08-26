@@ -12,7 +12,18 @@ struct LaunchDetailView: View {
     let backgroundImageName: String
     let index: Int
     @Environment(\.presentationMode) private var presentationMode
-    
+    @ObservedObject var rocketViewModel: RocketListViewModel
+    private var rocketName: String {
+        var name = "Unknown Rocket"
+        for rocket in rocketViewModel.rockets {
+            if rocket.id == launch.rocket {
+                name = rocket.name
+                break
+            }
+        }
+        return name
+    }
+
     private var isLeftAligned: Bool {
         return index % 3 == 1
     }
@@ -78,10 +89,15 @@ struct LaunchDetailView: View {
                 }
                 .padding(.top, 125)
                 
-                Text("Falcon 9")
+                Text(rocketName)
                     .font(.system(size: 24, weight: .semibold))
                     .foregroundColor(Color("lightGreen"))
                     .padding(.top, 40)
+                
+                Image("TestFalcon")
+                    .resizable()
+                    .frame(width: 240, height: 140)
+                    .padding(.top, 35)
                 
                 Spacer()
             }
@@ -120,14 +136,14 @@ struct LaunchDetailView: View {
     }
 }
 
-struct LaunchDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        LaunchDetailView(
-            launch: Launch.mockDataLaunch,
-            backgroundImageName: "upcoming2",
-            index: 1
-        )
-    }
-}
+//struct LaunchDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LaunchDetailView(
+//            launch: Launch.mockDataLaunch,
+//            backgroundImageName: "upcoming2",
+//            index: 1
+//        )
+//    }
+//}
 
 

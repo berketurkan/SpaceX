@@ -12,6 +12,7 @@ struct UpcomingView: View {
     @StateObject private var viewModel = LaunchViewModel()
     @State private var selectedLaunch: Launch? = nil
     @State private var isDetailPresented = false
+    @ObservedObject var rocketViewModel: RocketListViewModel
     
     var body: some View {
         ZStack {
@@ -53,7 +54,8 @@ struct UpcomingView: View {
                     LaunchDetailView(
                         launch: selectedLaunch,
                         backgroundImageName: "upcoming\(launchIndex % 3 + 1)",
-                        index: launchIndex
+                        index: launchIndex,
+                        rocketViewModel: rocketViewModel
                     )
                 }
             }
@@ -61,9 +63,9 @@ struct UpcomingView: View {
     }
 }
 
-struct UpcomingView_Previews: PreviewProvider {
-    static var previews: some View {
-        UpcomingView()
-    }
-}
+//struct UpcomingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UpcomingView()
+//    }
+//}
 

@@ -21,7 +21,7 @@ struct SpaceXTabView: View {
             } else if selectedTab == 1 {
                 FavoritesView(viewModel: viewModel)
             } else if selectedTab == 2 {
-                UpcomingView()
+                UpcomingView(rocketViewModel: viewModel)
             }
             
             Spacer()
