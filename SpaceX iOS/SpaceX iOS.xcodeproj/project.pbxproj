@@ -37,6 +37,7 @@
 		0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */; };
 		028B3A922C770F2900655BCA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3A912C770F2900655BCA /* LoginViewModel.swift */; };
 		02A914D72C76639200AC7408 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A914D62C76639200AC7408 /* LoginView.swift */; };
+		02A9F5B22C7C5BBB00C13918 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
@@ -94,6 +95,7 @@
 		0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRocket.swift; sourceTree = "<group>"; };
 		028B3A912C770F2900655BCA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		02A914D62C76639200AC7408 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
 		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */,
 				025854052C7B8B060015AB1A /* LaunchListCell.swift */,
 				025854072C7B99560015AB1A /* LaunchDetailView.swift */,
+				02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				021CC3FB2C786B2D009FA9D1 /* UIApplication+Extension.swift in Sources */,
 				028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */,
 				028B3A922C770F2900655BCA /* LoginViewModel.swift in Sources */,
+				02A9F5B22C7C5BBB00C13918 /* ForgotPasswordView.swift in Sources */,
 				02DC8AB12C762BD400C55CAF /* Validation.swift in Sources */,
 				02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */,
 				02AEAF4B2C6E29F800803662 /* BackButton.swift in Sources */,

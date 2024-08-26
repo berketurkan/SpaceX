@@ -12,6 +12,7 @@ struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
     @State private var isShowingMainView = false
     @State private var isLoggedIn = false
+    @State private var isShowingForgotPassword = false
     
     var body: some View {
         if isLoggedIn {
@@ -77,6 +78,7 @@ struct LoginView: View {
                         enabledColor: .clear,
                         font: .footnote,
                         action: {
+                            isShowingForgotPassword = true
                         }
                     )
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -164,11 +166,10 @@ struct LoginView: View {
                 viewModel.isLoggedIn = false
             }
             .navigationBarHidden(true)
+            .navigationDestination(isPresented: $isShowingForgotPassword) {
+                ForgotPasswordView()
+            }
         }
-        
-        //        .navigationDestination(isPresented: $isShowingMainView) {
-        //            SpaceXTabView()
-        //        }
     }
 }
 
