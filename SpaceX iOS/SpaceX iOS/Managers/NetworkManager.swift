@@ -15,6 +15,10 @@ final class NetworkManager {
     private let rocketsURL = baseURL + "rockets"
     private let upcomingLaunchesURL = "https://api.spacexdata.com/v5/launches/upcoming"
     
+    private let membershipAgreementURL = "https://firebasestorage.googleapis.com/v0/b/spacex-690e8.appspot.com/o/MembershipAgreement.txt?alt=media&token=c1983868-6100-45cd-94ec-308492bc84b8"
+    private let privacyPolicyURL = "https://firebasestorage.googleapis.com/v0/b/spacex-690e8.appspot.com/o/PrivacyConditions.txt?alt=media&token=28994437-6ef3-40e4-a4b7-25d48a3863b3"
+    
+    
     private init() {}
     
     func getRockets(completed: @escaping (Result<[Rocket], APError>) -> Void) {
@@ -127,6 +131,42 @@ final class NetworkManager {
         }
         
         task.resume()
+    }
+    
+    func fetchTextData(from urlString: String, completed: @escaping (Result<String, APError>) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completed(.failure(.invalidURL))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data, let textData = String(data: data, encoding: .utf8) else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            completed(.success(textData))
+        }
+        
+        task.resume()
+    }
+    
+    func fetchMembershipAgreement(completed: @escaping (Result<String, APError>) -> Void) {
+        fetchTextData(from: membershipAgreementURL, completed: completed)
+    }
+    
+    func fetchPrivacyPolicy(completed: @escaping (Result<String, APError>) -> Void) {
+        fetchTextData(from: privacyPolicyURL, completed: completed)
     }
     
 }

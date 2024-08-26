@@ -46,6 +46,7 @@
 		02A9F5BF2C7CAFCA00C13918 /* ActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5BE2C7CAFCA00C13918 /* ActivationView.swift */; };
 		02A9F5C12C7CB63B00C13918 /* AccountCreatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5C02C7CB63B00C13918 /* AccountCreatedView.swift */; };
 		02A9F5C32C7CB79400C13918 /* ActivationFailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5C22C7CB79400C13918 /* ActivationFailedView.swift */; };
+		02A9F5C52C7CC7CB00C13918 /* PrivacyConditionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5C42C7CC7CB00C13918 /* PrivacyConditionsViewModel.swift */; };
 		02AEAF442C6DDAA800803662 /* nasalization-rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF432C6DDAA800803662 /* nasalization-rg.otf */; };
 		02AEAF472C6DF5EE00803662 /* Muli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */; };
 		02AEAF492C6E223000803662 /* RocketDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AEAF482C6E223000803662 /* RocketDetailView.swift */; };
@@ -112,6 +113,7 @@
 		02A9F5BE2C7CAFCA00C13918 /* ActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationView.swift; sourceTree = "<group>"; };
 		02A9F5C02C7CB63B00C13918 /* AccountCreatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreatedView.swift; sourceTree = "<group>"; };
 		02A9F5C22C7CB79400C13918 /* ActivationFailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationFailedView.swift; sourceTree = "<group>"; };
+		02A9F5C42C7CC7CB00C13918 /* PrivacyConditionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyConditionsViewModel.swift; sourceTree = "<group>"; };
 		02AEAF432C6DDAA800803662 /* nasalization-rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "nasalization-rg.otf"; sourceTree = "<group>"; };
 		02AEAF452C6DDAC200803662 /* SpaceX-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SpaceX-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02AEAF462C6DF5EE00803662 /* Muli-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Regular.ttf"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				028B3A912C770F2900655BCA /* LoginViewModel.swift */,
 				025854032C7B898B0015AB1A /* UpcomingLaunch.swift */,
 				025854092C7BBA8A0015AB1A /* LaunchViewModel.swift */,
+				02A9F5C42C7CC7CB00C13918 /* PrivacyConditionsViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				02B99CE62C724F02000BAEED /* RocketListViewModel.swift in Sources */,
 				02B99CDC2C7237F0000BAEED /* NetworkManager.swift in Sources */,
 				025854042C7B898B0015AB1A /* UpcomingLaunch.swift in Sources */,
+				02A9F5C52C7CC7CB00C13918 /* PrivacyConditionsViewModel.swift in Sources */,
 				02B99CE92C729681000BAEED /* RemoteImage.swift in Sources */,
 				021CC3FB2C786B2D009FA9D1 /* UIApplication+Extension.swift in Sources */,
 				028567EB2C733A0500B5D1CE /* NavigationBarModifier.swift in Sources */,

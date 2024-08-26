@@ -11,6 +11,7 @@ struct SignUpStep2View: View {
     @Environment(\.presentationMode) private var presentationMode
     @State var isAccepted1: Bool = false
     @State var isAccepted2: Bool = false
+    @StateObject private var viewModel = PrivacyConditionsViewModel()
     
     var body: some View {
         ZStack {
@@ -31,16 +32,13 @@ struct SignUpStep2View: View {
                 
                 ConditionCell(
                     title: "Membership Agreement",
-                    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis porta orci, id semper neque. Morbi vehicula odio sit amet libero pretium dapibus. Sed vel feugiat dolor. Nullam at eros nibh. Duis vehicula venenatis massa vel mattis. Suspendisse venenatis suscipit elit, id tincidunt sapien eleifend eu. Proin rhoncus semper arcu id rutrum. Donec sit amet magna ultricies massa molestie laoreet sed vitae risus."
+                    description: viewModel.membershipAgreement
                 )
                 .padding(.top, 20)
                 
                 ConditionCell(
                     title: "Privacy Policy",
-                    description: """
-                        1. Lorem ipsum dolor sit amet
-                        Consectetur adipiscing elit. In quis porta orci, id semper neque. Morbi vehicula odio sit amet libero pretium dapibus. Sed vel feugiat dolor. Nullam at eros nibh. Duis vehicula venenatis massa vel mattis. Suspendisse venenatis suscipit elit, id tincidunt sapien eleifend eu. Proin rhoncus semper arcu id rutrum. Donec sit amet magna ultrices massa molestie laoreet sed vitae risus. Consectetur adipiscing elit. In quis porta orci, id semper neque. Morbi vehicula odio sit amet libero pretium dapibus. Sed vel feugiat dolor. Nullam at eros nibh. Duis vehicula venenatis massa vel mattis. Suspendisse venenatis suscipit elit, id tincidunt sapien eleifend eu. Proin rhoncus semper arcu id rutrum. Donec sit amet magna ultrices massa molestie laoreet sed vitae risus.
-                        """
+                    description: viewModel.privacyPolicy
                 )
                 .padding(.top, 15)
                 
@@ -67,6 +65,9 @@ struct SignUpStep2View: View {
                 
             }
             .padding(.top, 50)
+        }
+        .onAppear {
+            viewModel.loadConditions()
         }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Privacy and Conditions")
