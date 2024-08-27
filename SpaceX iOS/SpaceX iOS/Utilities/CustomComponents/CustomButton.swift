@@ -52,6 +52,7 @@ struct CustomButton: View {
             .cornerRadius(30)
             .opacity(isEnabled ? 1.0 : 0.6)
         }
+        .disabled(!isEnabled)
     }
 }
 

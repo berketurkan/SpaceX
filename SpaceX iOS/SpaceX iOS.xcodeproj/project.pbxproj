@@ -37,6 +37,7 @@
 		0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */; };
 		028B3A922C770F2900655BCA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B3A912C770F2900655BCA /* LoginViewModel.swift */; };
 		02A914D72C76639200AC7408 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A914D62C76639200AC7408 /* LoginView.swift */; };
+		02A9404C2C7DA20300C8BAA9 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9404B2C7DA20300C8BAA9 /* SignUpViewModel.swift */; };
 		02A9F5B22C7C5BBB00C13918 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */; };
 		02A9F5B42C7C6D5B00C13918 /* SignUpMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B32C7C6D5B00C13918 /* SignUpMainView.swift */; };
 		02A9F5B62C7C742900C13918 /* PasswordConditionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A9F5B52C7C742900C13918 /* PasswordConditionsView.swift */; };
@@ -105,6 +106,7 @@
 		0286E0C32C74BF840049B9EE /* FavoriteRocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRocket.swift; sourceTree = "<group>"; };
 		028B3A912C770F2900655BCA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		02A914D62C76639200AC7408 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		02A9404B2C7DA20300C8BAA9 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		02A9F5B12C7C5BBB00C13918 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		02A9F5B32C7C6D5B00C13918 /* SignUpMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainView.swift; sourceTree = "<group>"; };
 		02A9F5B52C7C742900C13918 /* PasswordConditionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConditionsView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				025854032C7B898B0015AB1A /* UpcomingLaunch.swift */,
 				025854092C7BBA8A0015AB1A /* LaunchViewModel.swift */,
 				02A9F5C42C7CC7CB00C13918 /* PrivacyConditionsViewModel.swift */,
+				02A9404B2C7DA20300C8BAA9 /* SignUpViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -370,7 +373,6 @@
 				BF33A48959860A38C5FF66F6 /* Pods-SpaceX iOS.debug.xcconfig */,
 				6A069C397EFB27D0C44AE54A /* Pods-SpaceX iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -551,6 +553,7 @@
 				02A9F5C12C7CB63B00C13918 /* AccountCreatedView.swift in Sources */,
 				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
 				025854082C7B99560015AB1A /* LaunchDetailView.swift in Sources */,
+				02A9404C2C7DA20300C8BAA9 /* SignUpViewModel.swift in Sources */,
 				02BCE35B2C6BA34C006AC26B /* CustomTabButton.swift in Sources */,
 				02A9F5C32C7CB79400C13918 /* ActivationFailedView.swift in Sources */,
 				02DC8AAF2C7618EB00C55CAF /* CustomButton.swift in Sources */,

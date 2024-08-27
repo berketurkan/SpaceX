@@ -13,7 +13,16 @@ struct LoginView: View {
     @State private var isShowingMainView = false
     @State private var isLoggedIn = false
     @State private var isShowingForgotPassword = false
+    @State private var isShowingSignUp = false
     
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "Muli", size: 20)!]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+    }
     var body: some View {
         if isLoggedIn {
             SpaceXTabView(isLoggedIn: $isLoggedIn)
@@ -154,7 +163,7 @@ struct LoginView: View {
                         enabledColor: .clear,
                         font: .footnote,
                         action: {
-                            // Sign up action
+                            isShowingSignUp = true
                         }
                     )
                     .padding(.top, 25)
@@ -163,11 +172,18 @@ struct LoginView: View {
                 }
             }
             .onAppear {
+                //resetViewModel()
                 viewModel.isLoggedIn = false
             }
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $isShowingForgotPassword) {
                 ForgotPasswordView()
+            }
+            .navigationDestination(isPresented: $isShowingSignUp) {
+                SignUpMainView()
+            }
+            .navigationDestination(isPresented: $isLoggedIn) {
+                SpaceXTabView(isLoggedIn: $isLoggedIn)
             }
         }
     }

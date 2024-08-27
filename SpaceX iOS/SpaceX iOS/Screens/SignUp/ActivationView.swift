@@ -1,5 +1,5 @@
 //
-//  SignUpStep3View.swift
+//  ActivationView.swift
 //  SpaceX iOS
 //
 //  Created by Vestel on 26.08.2024.
@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-struct SignUpStep3View: View {
+struct ActivationView: View {
     @Environment(\.presentationMode) private var presentationMode
-
+    @ObservedObject var viewModel: SignUpViewModel
+    @State private var showSuccessView = false
+    @State private var showFailureView = false
+    @State private var pollingTimer: Timer?
+    @State var cancel: Bool = false
+    
     var body: some View {
         ZStack {
             Image("SpaceXBackGround")
@@ -73,6 +78,27 @@ struct SignUpStep3View: View {
             }
             .padding(.top, 50)
         }
+        .navigationDestination(isPresented: $showSuccessView) {
+            AccountCreatedView()
+        }
+        .navigationDestination(isPresented: $showFailureView) {
+            ActivationFailedView(viewModel: viewModel)
+        }
+        .onAppear {
+            viewModel.signUp { success in
+                if success {
+                    startPollingForVerification()
+                } else {
+                    showFailureView = true
+                }
+            }
+        }
+        .onDisappear {
+            stopPollingForVerification()
+        }
+        .navigationDestination(isPresented: $cancel) {
+            LoginView()
+        }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Activation")
         .navigationBarTitleDisplayMode(.inline)
@@ -92,23 +118,39 @@ struct SignUpStep3View: View {
                 CustomButton(
                     title: "Cancel",
                     textColor: .white.opacity(0.5),
-                    width: 40,
-                    height: 20,
+                    width: 60,
+                    height: 45,
                     isEnabled: true,
                     disabledColor: .clear,
                     enabledColor: .clear,
-                    font: .headline,
+                    font: .subheadline,
                     action: {
-                        
+                        cancel = true
                     }
                 )
             }
         }
     }
-}
-
-struct SignUpStep3View_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpStep3View()
+    
+    private func startPollingForVerification() {
+        pollingTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { _ in
+            viewModel.checkEmailVerification { isVerified in
+                if isVerified {
+                    stopPollingForVerification()
+                    showSuccessView = true
+                }
+            }
+        }
+    }
+    
+    private func stopPollingForVerification() {
+        pollingTimer?.invalidate()
+        pollingTimer = nil
     }
 }
+
+//struct SignUpStep3View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpStep3View()
+//    }
+//}

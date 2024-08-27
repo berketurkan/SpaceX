@@ -1,5 +1,5 @@
 //
-//  SignUpStep4Fail.swift
+//  ActivationFailedView.swift
 //  SpaceX iOS
 //
 //  Created by Vestel on 26.08.2024.
@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct SignUpStep4Fail: View {
+struct ActivationFailedView: View {
     @Environment(\.presentationMode) private var presentationMode
-
+    @State var cancel: Bool = false
+    @ObservedObject var viewModel: SignUpViewModel
+    
     var body: some View {
         ZStack {
             Image("SpaceXBackGround")
@@ -68,6 +70,9 @@ struct SignUpStep4Fail: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Activation Failed")
+        .navigationDestination(isPresented: $cancel) {
+            LoginView()
+        }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -85,14 +90,14 @@ struct SignUpStep4Fail: View {
                 CustomButton(
                     title: "Cancel",
                     textColor: .white.opacity(0.5),
-                    width: 40,
-                    height: 20,
+                    width: 60,
+                    height: 45,
                     isEnabled: true,
                     disabledColor: .clear,
                     enabledColor: .clear,
-                    font: .headline,
+                    font: .subheadline,
                     action: {
-                        
+                        cancel = true
                     }
                 )
             }
@@ -100,8 +105,8 @@ struct SignUpStep4Fail: View {
     }
 }
 
-struct SignUpStep4Fail_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpStep4Fail()
-    }
-}
+//struct SignUpStep4Fail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpStep4Fail()
+//    }
+//}

@@ -1,5 +1,5 @@
 //
-//  SignUpStep1View.swift
+//  SignUpMainView.swift
 //  SpaceX iOS
 //
 //  Created by Vestel on 26.08.2024.
@@ -7,16 +7,11 @@
 
 import SwiftUI
 
-struct SignUpStep1View: View {
-    @State private var name: String = ""
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var phone: String = ""
-    @State private var country: String = ""
+struct SignUpMainView: View {
     @Environment(\.presentationMode) private var presentationMode
-    private var passwordValidator: PasswordValidator {
-        PasswordValidator(password: password)
-    }
+    @StateObject private var viewModel = SignUpViewModel()
+    @State private var navigateToConditions: Bool = false
+    @State var cancel: Bool = false
     
     var body: some View {
         ZStack {
@@ -36,7 +31,7 @@ struct SignUpStep1View: View {
                     .padding(.horizontal, 30)
                 
                 CustomTextField(
-                    text: $name,
+                    text: $viewModel.name,
                     label: "Name Surname",
                     showLabel: true,
                     placeholder: "Enter your name",
@@ -54,9 +49,9 @@ struct SignUpStep1View: View {
                 )
                 .padding(.top, 20)
                 .padding(.leading, 35)
-
+                
                 CustomTextField(
-                    text: $email,
+                    text: $viewModel.email,
                     label: "E-mail",
                     showLabel: true,
                     placeholder: "Enter your e-mail address",
@@ -75,7 +70,7 @@ struct SignUpStep1View: View {
                 .padding(.leading, 35)
                 
                 CustomTextField(
-                    text: $password,
+                    text: $viewModel.password,
                     label: "Password",
                     showLabel: true,
                     placeholder: "Enter your new password",
@@ -93,12 +88,12 @@ struct SignUpStep1View: View {
                 )
                 .padding(.leading, 35)
                 
-                PasswordConditionsView(passwordValidator: passwordValidator)
+                PasswordConditionsView(passwordValidator: PasswordValidator(password: viewModel.password))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 30)
                 
                 CustomTextField(
-                    text: $phone,
+                    text: $viewModel.phone,
                     label: "Phone",
                     showLabel: true,
                     placeholder: "Enter your phone number",
@@ -116,10 +111,9 @@ struct SignUpStep1View: View {
                 )
                 .padding(.top, 2)
                 .padding(.leading, 35)
-
                 
                 CustomTextField(
-                    text: $country,
+                    text: $viewModel.country,
                     label: "Country",
                     showLabel: true,
                     placeholder: "Select your country",
@@ -136,25 +130,37 @@ struct SignUpStep1View: View {
                     onCommit: {}
                 )
                 .padding(.leading, 35)
-
+                
                 Spacer()
                 CustomButton(
                     title: "Continue",
                     textColor: .white,
                     width: 240,
                     height: 30,
-                    isEnabled: true,
+                    isEnabled: !viewModel.name.isEmpty &&
+                        !viewModel.email.isEmpty &&
+                        !viewModel.password.isEmpty &&
+                        !viewModel.phone.isEmpty &&
+                        !viewModel.country.isEmpty &&
+                        EmailValidator(email: viewModel.email).isValid &&
+                        PasswordValidator(password: viewModel.password).isValid,
                     disabledColor: Color.white.opacity(0.1),
                     enabledColor: Color("lightGreen"),
                     font: .headline,
                     action: {
-                        // Continue action
+                        navigateToConditions = true
                     }
                 )
                 .padding(.bottom, 100)
                 
             }
             .padding(.top, 50)
+        }
+        .navigationDestination(isPresented: $navigateToConditions) {
+            PrivacyandConditonsView(viewModel: viewModel)
+        }
+        .navigationDestination(isPresented: $cancel) {
+            LoginView()
         }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Sign Up")
@@ -175,14 +181,14 @@ struct SignUpStep1View: View {
                 CustomButton(
                     title: "Cancel",
                     textColor: .white.opacity(0.5),
-                    width: 40,
-                    height: 20,
+                    width: 60,
+                    height: 45,
                     isEnabled: true,
                     disabledColor: .clear,
                     enabledColor: .clear,
-                    font: .headline,
+                    font: .subheadline,
                     action: {
-                        
+                        cancel = true
                     }
                 )
             }
@@ -190,8 +196,8 @@ struct SignUpStep1View: View {
     }
 }
 
-struct SignUpStep1View_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpStep1View()
-    }
-}
+//struct SignUpStep1View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpStep1View()
+//    }
+//}

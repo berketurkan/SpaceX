@@ -1,5 +1,5 @@
 //
-//  SignUpStep4Success.swift
+//  AccountCreatedView.swift
 //  SpaceX iOS
 //
 //  Created by Vestel on 26.08.2024.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct SignUpStep4Success: View {
+struct AccountCreatedView: View {
     @Environment(\.presentationMode) private var presentationMode
+    @State var cancel: Bool = false
 
     var body: some View {
         ZStack {
@@ -66,6 +67,9 @@ struct SignUpStep4Success: View {
             }
             .padding(.top, 50)
         }
+        .navigationDestination(isPresented: $cancel) {
+            LoginView()
+        }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Account Created")
         .navigationBarTitleDisplayMode(.inline)
@@ -85,14 +89,14 @@ struct SignUpStep4Success: View {
                 CustomButton(
                     title: "Cancel",
                     textColor: .white.opacity(0.5),
-                    width: 40,
-                    height: 20,
+                    width: 60,
+                    height: 30,
                     isEnabled: true,
                     disabledColor: .clear,
                     enabledColor: .clear,
-                    font: .headline,
+                    font: .subheadline,
                     action: {
-                        
+                        cancel = true
                     }
                 )
             }
@@ -100,8 +104,8 @@ struct SignUpStep4Success: View {
     }
 }
 
-struct SignUpStep4Success_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpStep4Success()
-    }
-}
+//struct SignUpStep4Success_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpStep4Success()
+//    }
+//}

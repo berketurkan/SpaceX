@@ -1,5 +1,5 @@
 //
-//  SignUpStep2View.swift
+//  PrivacyandConditonsView.swift
 //  SpaceX iOS
 //
 //  Created by Vestel on 26.08.2024.
@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct SignUpStep2View: View {
+struct PrivacyandConditonsView: View {
     @Environment(\.presentationMode) private var presentationMode
+    @ObservedObject var viewModel: SignUpViewModel
     @State var isAccepted1: Bool = false
     @State var isAccepted2: Bool = false
-    @StateObject private var viewModel = PrivacyConditionsViewModel()
+    @State var navigateToStep3: Bool = false
+    @StateObject private var ConditonViewModel = PrivacyConditionsViewModel()
+    @State var cancel: Bool = false
     
     var body: some View {
         ZStack {
@@ -32,13 +35,13 @@ struct SignUpStep2View: View {
                 
                 ConditionCell(
                     title: "Membership Agreement",
-                    description: viewModel.membershipAgreement
+                    description: ConditonViewModel.membershipAgreement
                 )
                 .padding(.top, 20)
                 
                 ConditionCell(
                     title: "Privacy Policy",
-                    description: viewModel.privacyPolicy
+                    description: ConditonViewModel.privacyPolicy
                 )
                 .padding(.top, 15)
                 
@@ -56,7 +59,7 @@ struct SignUpStep2View: View {
                     enabledColor: Color("lightGreen"),
                     font: .headline,
                     action: {
-                        print("Continue button pressed")
+                        navigateToStep3 = true
                     }
                 )
                 .padding(.top, 20)
@@ -67,7 +70,13 @@ struct SignUpStep2View: View {
             .padding(.top, 50)
         }
         .onAppear {
-            viewModel.loadConditions()
+            ConditonViewModel.loadConditions()
+        }
+        .navigationDestination(isPresented: $navigateToStep3) {
+            ActivationView(viewModel: viewModel)
+        }
+        .navigationDestination(isPresented: $cancel) {
+            LoginView()
         }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Privacy and Conditions")
@@ -88,14 +97,14 @@ struct SignUpStep2View: View {
                 CustomButton(
                     title: "Cancel",
                     textColor: .white.opacity(0.5),
-                    width: 40,
-                    height: 20,
+                    width: 60,
+                    height: 45,
                     isEnabled: true,
                     disabledColor: .clear,
                     enabledColor: .clear,
-                    font: .headline,
+                    font: .subheadline,
                     action: {
-                        
+                        cancel = true
                     }
                 )
             }
@@ -103,8 +112,8 @@ struct SignUpStep2View: View {
     }
 }
 
-struct SignUpStep2View_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpStep2View()
-    }
-}
+//struct SignUpStep2View_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignUpStep2View()
+//    }
+//}
