@@ -57,8 +57,13 @@ struct ActivationFailedView: View {
                     enabledColor: .gray.opacity(0.5),
                     font: Font.custom("Muli", size: 14).bold(),
                     action: {
-                        
-                        print("Send Again tapped")
+                        viewModel.sendVerificationEmail { success in
+                            if success {
+                                print("Verification email sent successfully.")
+                            } else {
+                                print("Failed to send verification email.")
+                            }
+                        }
                     }
                 )
                 .padding(.top, 260)
