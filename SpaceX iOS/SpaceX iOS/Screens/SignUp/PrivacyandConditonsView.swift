@@ -14,6 +14,7 @@ struct PrivacyandConditonsView: View {
     @State var isAccepted2: Bool = false
     @State var navigateToStep3: Bool = false
     @StateObject private var ConditonViewModel = PrivacyConditionsViewModel()
+    @Binding var isLoggedIn: Bool
     @State var cancel: Bool = false
     
     var body: some View {
@@ -73,7 +74,7 @@ struct PrivacyandConditonsView: View {
             ConditonViewModel.loadConditions()
         }
         .navigationDestination(isPresented: $navigateToStep3) {
-            ActivationView(viewModel: viewModel)
+            ActivationView(viewModel: viewModel, isLoggedIn: $isLoggedIn)
         }
         .navigationDestination(isPresented: $cancel) {
             LoginView()

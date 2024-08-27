@@ -13,6 +13,7 @@ struct ActivationView: View {
     @State private var showSuccessView = false
     @State private var showFailureView = false
     @State private var pollingTimer: Timer?
+    @Binding var isLoggedIn: Bool
     @State var cancel: Bool = false
     
     var body: some View {
@@ -84,7 +85,7 @@ struct ActivationView: View {
             .padding(.top, 50)
         }
         .navigationDestination(isPresented: $showSuccessView) {
-            AccountCreatedView()
+            AccountCreatedView(isLoggedIn: $isLoggedIn)
         }
         .navigationDestination(isPresented: $showFailureView) {
             ActivationFailedView(viewModel: viewModel)

@@ -11,6 +11,7 @@ struct SignUpMainView: View {
     @Environment(\.presentationMode) private var presentationMode
     @StateObject private var viewModel = SignUpViewModel()
     @State private var navigateToConditions: Bool = false
+    @Binding var isLoggedIn: Bool
     @State var cancel: Bool = false
     
     var body: some View {
@@ -157,7 +158,7 @@ struct SignUpMainView: View {
             .padding(.top, 50)
         }
         .navigationDestination(isPresented: $navigateToConditions) {
-            PrivacyandConditonsView(viewModel: viewModel)
+            PrivacyandConditonsView(viewModel: viewModel, isLoggedIn: $isLoggedIn)
         }
         .navigationDestination(isPresented: $cancel) {
             LoginView()

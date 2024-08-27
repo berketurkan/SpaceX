@@ -13,6 +13,8 @@ struct RocketsListView: View {
     @State private var selectedRocket: Rocket? = nil
     @State private var isTapAnimating = false
     @State private var isDetailPresented = false
+    @State private var navigateLogin = false
+
     @Binding var isLoggedIn: Bool
     let rockets = MockData.sampleRockets
     
@@ -59,13 +61,15 @@ struct RocketsListView: View {
                         }
                     }
                     .padding(.top, 20)
+                    .padding(.bottom, 110)
                 }
             }
-            .padding(.top, 60)
+            .padding(.top, 80)
         }.toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     isLoggedIn = false
+                    navigateLogin = true
                 }) {
                     Image(systemName: "rectangle.portrait.and.arrow.right")
                         .resizable()
@@ -83,6 +87,9 @@ struct RocketsListView: View {
             font: UIFont(name: "Muli", size: 20)!,
             withSeparator: false
         )
+        .navigationDestination(isPresented: $navigateLogin) {
+            LoginView()
+        }
         .navigationDestination(isPresented: $isDetailPresented) {
             
             if let selectedRocket = selectedRocket {

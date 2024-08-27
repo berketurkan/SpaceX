@@ -180,7 +180,7 @@ struct LoginView: View {
                 ForgotPasswordView()
             }
             .navigationDestination(isPresented: $isShowingSignUp) {
-                SignUpMainView()
+                SignUpMainView(isLoggedIn: $isLoggedIn)
             }
             .navigationDestination(isPresented: $isLoggedIn) {
                 SpaceXTabView(isLoggedIn: $isLoggedIn)

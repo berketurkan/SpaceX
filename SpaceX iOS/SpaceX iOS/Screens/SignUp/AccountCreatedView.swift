@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AccountCreatedView: View {
     @Environment(\.presentationMode) private var presentationMode
+    @State var showMain: Bool = false
+    @Binding var isLoggedIn: Bool
     @State var cancel: Bool = false
 
     var body: some View {
@@ -56,8 +58,8 @@ struct AccountCreatedView: View {
                     enabledColor: Color("lightGreen"),
                     font: Font.custom("Muli", size: 14).bold(),
                     action: {
-                        
-                        print("Send Again tapped")
+                        isLoggedIn = true
+                        showMain = true
                     }
                 )
                 .padding(.top, 270)
