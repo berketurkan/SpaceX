@@ -11,6 +11,7 @@
 		021CC3FB2C786B2D009FA9D1 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CC3FA2C786B2D009FA9D1 /* UIApplication+Extension.swift */; };
 		021CC3FF2C78CA9F009FA9D1 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */; };
 		02250B4A2C6C82FB0094700E /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02250B492C6C82FB0094700E /* Color++.swift */; };
+		0239B1862C7F181700629E90 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0239B1852C7F181700629E90 /* ForgotPasswordViewModel.swift */; };
 		025854042C7B898B0015AB1A /* UpcomingLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025854032C7B898B0015AB1A /* UpcomingLaunch.swift */; };
 		025854062C7B8B060015AB1A /* LaunchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025854052C7B8B060015AB1A /* LaunchListCell.swift */; };
 		025854082C7B99560015AB1A /* LaunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025854072C7B99560015AB1A /* LaunchDetailView.swift */; };
@@ -68,7 +69,8 @@
 		02DC8AB12C762BD400C55CAF /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DC8AB02C762BD400C55CAF /* Validation.swift */; };
 		02DE7F5F2C78612D0076DFF0 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 02DE7F5E2C78612D0076DFF0 /* GoogleSignIn */; };
 		02DE7F612C78612D0076DFF0 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 02DE7F602C78612D0076DFF0 /* GoogleSignInSwift */; };
-		92DBC21C7DCD343462AAA532 /* Pods_SpaceX_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABB706BF998FDAFEF9A3AE5 /* Pods_SpaceX_iOS.framework */; };
+		02F49CF82C7F099400470780 /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F49CF72C7F099400470780 /* CustomPopup.swift */; };
+		02F49CFA2C7F0A3900470780 /* BackgroundBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F49CF92C7F0A3900470780 /* BackgroundBlur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +92,7 @@
 		021CC3FA2C786B2D009FA9D1 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		021CC3FE2C78CA9F009FA9D1 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		02250B492C6C82FB0094700E /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
+		0239B1852C7F181700629E90 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		025854032C7B898B0015AB1A /* UpcomingLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingLaunch.swift; sourceTree = "<group>"; };
 		025854052C7B8B060015AB1A /* LaunchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListCell.swift; sourceTree = "<group>"; };
 		025854072C7B99560015AB1A /* LaunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailView.swift; sourceTree = "<group>"; };
@@ -136,9 +139,8 @@
 		02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		02DC8AB02C762BD400C55CAF /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		4ABB706BF998FDAFEF9A3AE5 /* Pods_SpaceX_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A069C397EFB27D0C44AE54A /* Pods-SpaceX iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX iOS.release.xcconfig"; path = "Target Support Files/Pods-SpaceX iOS/Pods-SpaceX iOS.release.xcconfig"; sourceTree = "<group>"; };
-		BF33A48959860A38C5FF66F6 /* Pods-SpaceX iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX iOS.debug.xcconfig"; path = "Target Support Files/Pods-SpaceX iOS/Pods-SpaceX iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		02F49CF72C7F099400470780 /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
+		02F49CF92C7F0A3900470780 /* BackgroundBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundBlur.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,6 @@
 				028567FD2C736C2F00B5D1CE /* FirebaseFirestore in Frameworks */,
 				0286E0C12C746D7F0049B9EE /* RealmSwift in Frameworks */,
 				028567FF2C736C2F00B5D1CE /* FirebaseFirestoreSwift in Frameworks */,
-				92DBC21C7DCD343462AAA532 /* Pods_SpaceX_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +187,7 @@
 				025854092C7BBA8A0015AB1A /* LaunchViewModel.swift */,
 				02A9F5C42C7CC7CB00C13918 /* PrivacyConditionsViewModel.swift */,
 				02A9404B2C7DA20300C8BAA9 /* SignUpViewModel.swift */,
+				0239B1852C7F181700629E90 /* ForgotPasswordViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,8 +258,6 @@
 			children = (
 				028439A82C6A4AE600316DB3 /* SpaceX iOS */,
 				028439A72C6A4AE600316DB3 /* Products */,
-				028567EF2C736C2F00B5D1CE /* Frameworks */,
-				D8E85B20D5C6E26D18014835 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,14 +296,6 @@
 				028439B02C6A4AE700316DB3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		028567EF2C736C2F00B5D1CE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4ABB706BF998FDAFEF9A3AE5 /* Pods_SpaceX_iOS.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		02A9F5B72C7C934500C13918 /* SignUp */ = {
@@ -363,17 +355,10 @@
 				02DC8AAC2C75DBDA00C55CAF /* CustomTextField.swift */,
 				02DC8AAE2C7618EB00C55CAF /* CustomButton.swift */,
 				02A9F5B52C7C742900C13918 /* PasswordConditionsView.swift */,
+				02F49CF72C7F099400470780 /* CustomPopup.swift */,
+				02F49CF92C7F0A3900470780 /* BackgroundBlur.swift */,
 			);
 			path = CustomComponents;
-			sourceTree = "<group>";
-		};
-		D8E85B20D5C6E26D18014835 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BF33A48959860A38C5FF66F6 /* Pods-SpaceX iOS.debug.xcconfig */,
-				6A069C397EFB27D0C44AE54A /* Pods-SpaceX iOS.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +368,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 028439B42C6A4AE700316DB3 /* Build configuration list for PBXNativeTarget "SpaceX iOS" */;
 			buildPhases = (
-				5F7C176938E8E85151DC62EE /* [CP] Check Pods Manifest.lock */,
 				028439A22C6A4AE600316DB3 /* Sources */,
 				028439A32C6A4AE600316DB3 /* Frameworks */,
 				028439A42C6A4AE600316DB3 /* Resources */,
@@ -490,28 +474,6 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
-		5F7C176938E8E85151DC62EE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SpaceX iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -525,6 +487,7 @@
 				025854062C7B8B060015AB1A /* LaunchListCell.swift in Sources */,
 				028091AA2C6B403F002DBF5F /* SplashView.swift in Sources */,
 				021CC3FF2C78CA9F009FA9D1 /* ResetPasswordView.swift in Sources */,
+				0239B1862C7F181700629E90 /* ForgotPasswordViewModel.swift in Sources */,
 				0286E0C42C74BF840049B9EE /* FavoriteRocket.swift in Sources */,
 				0280919F2C6B32D3002DBF5F /* Rocket.swift in Sources */,
 				02BCE35D2C6BA453006AC26B /* FavoritesView.swift in Sources */,
@@ -533,6 +496,7 @@
 				02A9F5BD2C7C9F9B00C13918 /* AcceptRow.swift in Sources */,
 				02BCE3572C6B99BB006AC26B /* RocketsListView.swift in Sources */,
 				02250B4A2C6C82FB0094700E /* Color++.swift in Sources */,
+				02F49CF82C7F099400470780 /* CustomPopup.swift in Sources */,
 				02B99CE62C724F02000BAEED /* RocketListViewModel.swift in Sources */,
 				02B99CDC2C7237F0000BAEED /* NetworkManager.swift in Sources */,
 				025854042C7B898B0015AB1A /* UpcomingLaunch.swift in Sources */,
@@ -550,6 +514,7 @@
 				02A9F5BB2C7C961900C13918 /* ConditionCell.swift in Sources */,
 				02DC8AAD2C75DBDA00C55CAF /* CustomTextField.swift in Sources */,
 				02B99CE02C72399D000BAEED /* APError.swift in Sources */,
+				02F49CFA2C7F0A3900470780 /* BackgroundBlur.swift in Sources */,
 				02A9F5C12C7CB63B00C13918 /* AccountCreatedView.swift in Sources */,
 				02AEAF4D2C6E45B300803662 /* DetailRow.swift in Sources */,
 				025854082C7B99560015AB1A /* LaunchDetailView.swift in Sources */,
@@ -683,7 +648,6 @@
 		};
 		028439B52C6A4AE700316DB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF33A48959860A38C5FF66F6 /* Pods-SpaceX iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -716,7 +680,6 @@
 		};
 		028439B62C6A4AE700316DB3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A069C397EFB27D0C44AE54A /* Pods-SpaceX iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

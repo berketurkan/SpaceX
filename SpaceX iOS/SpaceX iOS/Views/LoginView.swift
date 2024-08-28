@@ -107,8 +107,14 @@ struct LoginView: View {
                             Task {
                                 let success = await viewModel.signIn()
                                 if success {
-                                    isShowingMainView = true
-                                    isLoggedIn = true
+                                    if viewModel.isEmailVerified() {
+                                        isLoggedIn = true
+                                        isShowingMainView = true
+                                    } else {
+                                        // Handle unverified email: Show an alert or navigate to a verification screen
+                                        viewModel.errorMessage = "Your email is not verified. Please check your inbox."
+                                        // Optionally: Show alert or verification instructions
+                                    }
                                 }
                             }
                         }

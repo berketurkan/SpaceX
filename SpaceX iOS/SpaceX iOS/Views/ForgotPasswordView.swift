@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ForgotPasswordView: View {
-    @State private var email: String = ""
+    @StateObject private var viewModel = ForgotPasswordViewModel()
+    @State private var isShowingPopup: Bool = false
+    @State private var isShowingLogin: Bool = false
+    @State private var popupMessage = "Processing..."
+    @State private var pollingTimer: Timer?
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
@@ -26,7 +30,6 @@ struct ForgotPasswordView: View {
                     .bold()
                     .padding(.leading, 24)
                     .padding(.bottom, 2)
-                    //padding(.top, 0)
                 
                 Text("No worries!\nEnter your e-mail address below and we will send you the instructions to create a new one. ")
                     .font(.custom("Muli", size: 14))
@@ -41,7 +44,7 @@ struct ForgotPasswordView: View {
                     .padding(.leading, 30)
                 
                 CustomTextField(
-                    text: $email,
+                    text: $viewModel.email,
                     placeholder: "Enter your e-mail address",
                     isSecure: false,
                     imageName: "iconEmail",
@@ -53,12 +56,12 @@ struct ForgotPasswordView: View {
                     height: 18,
                     width: 335,
                     onCommit: {
-                        // Handle commit action
+                        
                     }
                 )
                 .padding(.leading, 0)
                 
-                Spacer()  // Spacer to push the button down
+                Spacer()
                 
                 HStack {
                     Spacer()
@@ -67,12 +70,19 @@ struct ForgotPasswordView: View {
                         textColor: .white,
                         width: 240,
                         height: 30,
-                        isEnabled: !email.isEmpty,
+                        isEnabled:  EmailValidator(email: viewModel.email).isValid,
                         disabledColor: Color.white.opacity(0.1),
                         enabledColor: Color("lightGreen"),
                         font: .headline,
                         action: {
-                            
+                            viewModel.sendPasswordResetEmail { success in
+                                if success {
+                                    isShowingPopup = true
+                                } else {
+                                    popupMessage = viewModel.errorMessage ?? "Unknown error occurred."
+                                    isShowingPopup = true
+                                }
+                            }
                         }
                     )
                     Spacer()
@@ -80,6 +90,34 @@ struct ForgotPasswordView: View {
                 .padding(.bottom, 100)
             }
             .padding(.top, 70)
+            
+            if isShowingPopup {
+                Color.clear
+                    .background(BlurView(style: .systemMaterial))
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.opacity)
+                    .onTapGesture {
+                    }
+                
+                CustomPopup(
+                    width: 300,
+                    height: 250,
+                    imageWidth: 70,
+                    imageHeight: 70,
+                    backgroundColor: .gray.opacity(0.9),
+                    title: "Check your e-mail address.",
+                    description: "Click the button in the sent mail\nto set a new password.",
+                    buttonText: "OK",
+                    imageName: "activationEmailIcon",
+                    onButtonTap: {
+                        isShowingPopup = false // Dismiss the popup
+                        isShowingLogin = true // Navigate to the login view
+                    }
+                )
+            }
+        }
+        .navigationDestination(isPresented: $isShowingLogin) {
+            LoginView()
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -98,17 +136,30 @@ struct ForgotPasswordView: View {
                 CustomButton(
                     title: "Cancel",
                     textColor: .white.opacity(0.5),
-                    width: 40,
-                    height: 20,
+                    width: 60,
+                    height: 45,
                     isEnabled: true,
                     disabledColor: .clear,
                     enabledColor: .clear,
                     font: .headline,
                     action: {
-                        
+                        isShowingLogin = true
                     }
                 )
             }
+        }
+    }
+     
+    struct BlurView: UIViewRepresentable {
+        var style: UIBlurEffect.Style
+        
+        func makeUIView(context: Context) -> UIVisualEffectView {
+            let view = UIVisualEffectView(effect: UIBlurEffect(style: style))
+            return view
+        }
+        
+        func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+            uiView.effect = UIBlurEffect(style: style)
         }
     }
 }

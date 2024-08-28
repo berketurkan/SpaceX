@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AccountCreatedView: View {
     @Environment(\.presentationMode) private var presentationMode
-    @State var showMain: Bool = false
     @Binding var isLoggedIn: Bool
+    @State var showMain: Bool = false
     @State var cancel: Bool = false
 
     var body: some View {

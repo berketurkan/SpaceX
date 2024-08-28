@@ -109,16 +109,37 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    func isEmailVerified() -> Bool {
+        return Auth.auth().currentUser?.isEmailVerified ?? false
+    }
+    
     func signIn() async -> Bool {
         do {
-            _ = try await Auth.auth().signIn(withEmail: email, password: password)
-            hasError = false
-            isLoggedIn = true
-            return true
-        } catch {
-            hasError = true
-            errorMessage = error.localizedDescription
-            isLoggedIn = false
+            let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            DispatchQueue.main.async {
+                if result.user.isEmailVerified {
+                    self.hasError = false
+                    self.isLoggedIn = true
+                } else {
+                    self.hasError = true
+                    self.errorMessage = "E-mail verification is needed. Please check your inbox."
+                }
+            }
+            return result.user.isEmailVerified
+        } catch let error as NSError {
+            DispatchQueue.main.async {
+                self.hasError = true
+                switch error.code {
+                case AuthErrorCode.userNotFound.rawValue,
+                    AuthErrorCode.wrongPassword.rawValue,
+                    AuthErrorCode.internalError.rawValue:
+                    self.errorMessage = "Your password or e-mail address is wrong."
+                case AuthErrorCode.networkError.rawValue:
+                    self.errorMessage = "Network error. Please try again later."
+                default:
+                    self.errorMessage = "Your password or e-mail address is wrong."
+                }
+            }
             return false
         }
     }
