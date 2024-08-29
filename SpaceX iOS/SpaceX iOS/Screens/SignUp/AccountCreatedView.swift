@@ -58,7 +58,7 @@ struct AccountCreatedView: View {
                     enabledColor: Color("lightGreen"),
                     font: Font.custom("Muli", size: 14).bold(),
                     action: {
-                        isLoggedIn = true
+                        //isLoggedIn = true
                         showMain = true
                     }
                 )
@@ -68,6 +68,9 @@ struct AccountCreatedView: View {
                 
             }
             .padding(.top, 50)
+        }
+        .navigationDestination(isPresented: $showMain) {
+            LoginView()
         }
         .navigationDestination(isPresented: $cancel) {
             LoginView()
